@@ -1,0 +1,234 @@
+---
+title: "R Notebook sandbox: Assignment Datasets"
+output: 
+  html_document:
+      df_print: paged
+      toc: true
+      toc_float: true
+      fig_caption: true
+      number_sections: true
+my-var: "Misa" //
+---
+
+
+```{r, mychunk-common_include, message=FALSE}
+library(devtools); 
+my.source = 'local'
+local.path = "C:/_git_/WSU_STATS419_FALL2020/";
+source(paste0(local.path, "functions/libraries.R"), local=T);
+
+```
+
+# Matrix
+Create the "rotate matrix" functions described in lecture. Apply to the example "myMatrix".
+```{r, mychunk-matrix-include, message=FALSE}
+source(paste0(local.path, "functions/functions-matrix.R"), local=T);
+
+myMatrix = matrix( c (
+			                1, 0, 2,
+			                0, 3, 0,
+			                4, 0, 5
+				               ), nrow=3, byrow=T);
+
+transposeMatrix = function(mat)
+{
+  t(mat);	
+          }
+					
+		#rotateMatrix90(mat)	
+		#rotateMatrix180(mat)
+		#rotateMatrix270(mat)
+		# 3x3 matrix ... ## matrix multiplication
+
+
+```
+
+```{r, mychunk-matrix}
+source(paste0(local.path, "WEEK-03/functions/HW2_functions.R"), local=T);
+# Rotate clockwise
+rotateMatrix90(myMatrix);
+rotateMatrix180(myMatrix);
+rotateMatrix270(myMatrix);
+# Rotate counter clockwise
+rotateMatrix90_cc(myMatrix);
+rotateMatrix180_cc(myMatrix);
+rotateMatrix270_cc(myMatrix);
+```
+
+
+
+# IRIS Scatterplot
+Recreate the graphic for the IRIS Data Set using R. Same titles, same scales, same colors. See: https://en.wikipedia.org/wiki/Iris_flower_data_set#/media/File:Iris_dataset_scatterplot.svg
+```{r, mychunk-iris-include, fig.cap="Iris Data scatterplot"}
+# Iris Data Set
+IRIS_Data = iris 
+class(iris)
+# Scatterplot
+pairs(IRIS_Data[1:4], main = "Iris Data (red=setosa,green=versicolor,blue=virginica)", 
+      pch = 21, bg = c("red", "green", "blue")[unclass(IRIS_Data$Species)])
+
+```
+
+# IRIS Question
+Right 2-3 sentences concisely defining the IRIS Data Set.  Maybe search KAGGLE for a nice template.  
+Be certain the final writeup are your own sentences (make certain you modify what you find, make it your own, but also cite where you got your ideas from). NOTE:  Watch the video, Figure 8 has a +5 EASTER EGG.
+
+The Iris flower data set is a multivariate data set. The data set contains four measurements (sepals length and width, petals length and width) for 150 records of flowers. Each is represented in the three species of iris: Iris setosa, Iris versicolor and Iris virginica. The Iris setosa is from a wide range across the Arctic sea. The Iris versicolor is found in North America, like Eastern United States and Eastern Canada. The Iris virginica is native to eastern North America.
+
+
+
+# Personality
+Import "personality-raw.txt" into R.  Remove the V00 column.  Create two new columns from the current column "date_test":  year and week. Stack Overflow may help:  https://stackoverflow.com/questions/22439540/how-to-get-week-numbers-from-dates ... Sort the new data frame by YEAR, WEEK so the newest tests are first ... The newest tests (e.g., 2020 or 2019) are at the top of the data frame.  Then remove duplicates using the unique function based on the column "md5_email".  Save the data frame in the same "pipe-delimited format" ( | is a pipe ) with the headers.  You will keep the new data frame as "personality-clean.txt" for future work (you will not upload it at this time).  In the homework, for this tasks, report how many records your raw dataset had and how many records your clean dataset has.
+```{r, mychunk-personality}
+my_data = read.delim("C:\\Users\\michaela.bayerlova\\Documents\\STATS 419\\reading assignments\\personality-raw.txt", sep = "|", header = TRUE);
+head(my_data);
+nrow_raw_data <- nrow(my_data);
+dim(my_data);
+
+# remove column V00
+my_data$V00 <- NULL;
+
+# Create two new columns from the current column "date_test":  year and week
+d = strptime(my_data$date_test, format="%m/%d/%Y %H:%M");
+d.year = as.numeric(strftime(d, format='%Y'));
+d.week = as.numeric(strftime(d, format='%W'));
+my_data$year = d.year;
+my_data$week = d.week;
+date_index = which(names(my_data)=="date_test");
+
+# Remove date_test
+my_data$date_test <- NULL;
+
+# Sort the new data frame by YEAR, WEEK so the newest tests are first 
+# my_data <- arrange(my_data, c("year","week"),);
+df.dim = dim(my_data); 
+df.pos = df.dim[2]; 
+which( names(my_data)=="year" );
+which( names(my_data)=="week" );
+my_data = my_data[, c(1,62,63, 2:61)];
+
+if(date_index == 1)
+{
+  reorder = c( (df.pos-1):df.pos, 2:(df.pos-2) );
+}
+else
+{
+  reorder = c( 1:(date_index-1), (df.pos-1):df.pos, 2:(df.pos-2) );
+}
+my_data = my_data[, reorder];
+my_data_sorted = my_data[ order(-my_data[,date_index],-my_data[,(1+date_index)]), ];
+head(my_data_sorted[,1:5]);
+
+# Remove duplicates using the unique function based on the column "md5_email", only leave most recent
+#my_data <- my_data[!duplicated(my_data$md5_email),];
+u = unique( my_data_sorted["md5_email"] );
+my_data_clean = my_data_sorted[!duplicated(my_data_sorted["md5_email"]), ];
+
+# In the homework, for this tasks, report how many records your raw dataset had and
+# how many records your clean dataset has
+nrow_clean_data <- nrow(my_data_clean)
+dim(my_data_clean);
+fwrite(my_data_clean,"personality-clean.txt", sep="|",col.names = TRUE, row.names = FALSE);
+
+```
+
+
+
+# Variance and Z-scores 
+Write functions for doSummary and sampleVariance and doMode ... test these functions in your homework on the "monte.shaffer@gmail.com" record from the clean dataset.  Report your findings.  For this "monte.shaffer@gmail.com" record, also create z-scores.  Plot(x,y) where x is the raw scores for "monte.shaffer@gmail.com" and y is the z-scores from those raw scores.  Include the plot in your assignment, and write 2 sentences describing what pattern you are seeing and why this pattern is present.
+## Summary Analysis
+```{r, mychunk-summary}
+x = "monte.shaffer@gmail.com"
+doSummary(x);
+```
+
+## Variance
+```{r, mychunk-variance}
+doSampleVariance(x, "naive");
+```
+
+## Mode
+```{r, mychunk-mode}
+doMode(x);
+```
+
+
+### Naive
+#### Problems with this approach
+### Traditional Two Pass
+## Z-scores
+
+
+
+## Will vs. Denzel
+Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code and in DROPBOX: \__student_access__\unit_01_exploratory_data_analysis\week_02\imdb-example ]  You will have to create a new variable $millions.2000 that converts each movie's $millions based on the $year of the movie, so all dollars are in the same time frame.  You will need inflation data from about 1980-2020 to make this work.
+```{r, mychunk-imdb_include, message=FALSE}
+source(paste0(local.path, "functions/functions-imdb.R"), local=T);
+```
+
+### Will Smith
+```{r, mychunk-will, fig.cap= c("Will Smith scatterplot: IMDB(2020)", "Will Smith boxplot raw millions: IMDB(2020)")}
+nmid = "nm0000226";
+ 	will = grabFilmsForPerson(nmid);
+ 	plot(will$movies.50[,c(1,6,7:10)], ylim=c(0,200), xlim=c(0,200));
+  	boxplot(will$movies.50$millions);
+		widx =  which.max(will$movies.50$millions);
+	will$movies.50[widx,];
+		summary(will$movies.50$year);  
+
+```
+
+### Denzel Washington
+```{r, mychunk-denzel, fig.cap= c("Denzel Washington scatterplot: IMDB(2020)", "Denzel Washington boxplot raw millions: IMDB(2020)")}
+nmid = "nm0000243";
+ 	denzel = grabFilmsForPerson(nmid);
+ 	plot(denzel$movies.50[,c(1,6,7:10)], ylim=c(0,360), xlim=c(0,360));
+  	boxplot(denzel$movies.50$millions);
+		didx =  which.max(denzel$movies.50$millions);
+	denzel$movies.50[didx,];
+		summary(denzel$movies.50$year);
+```
+
+### Boxplot of Top-50 movies using Raw Dollars
+```{r, mychunk-boxplot-raw}
+par(mfrow=c(1,2));
+	boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions" );
+	boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions" );
+	
+	par(mfrow=c(1,1));
+
+```
+
+### Film Count Of Will Smith
+```{r, mychunk-filmcount-will}
+new.will = will$movies.50;
+new.will$nmid = will$nmid;
+new.will$name = will$name;
+new.will$countfilms = will$countfilms$totalcount;
+new.will = new.will[, c(12,13,14, 1:11)];
+```
+
+### Film Count Of Denzel Washington
+```{r, mychunk-filmcount-denzel}
+new.denzel = denzel$movies.50;
+new.denzel$nmid = denzel$nmid;
+new.denzel$name = denzel$name;
+new.denzel$countfilms = denzel$countfilms$totalcount;
+new.denzel = new.denzel[, c(12,13,14, 1:11)];
+```
+
+### Combined Dataframe of Will Smith and Denzel Washington
+```{r, mychunk-will-denzel-df}
+df.will.denzel = rbind(new.will, new.denzel);
+```
+
+
+
+
+
+
+# Side by side comparison
+Build side-by-side box plots on several of the variables (including #6) to compare the two movie stars.  After each box plot, write 2+ sentence describing what you are seeing, and what conclusions you can logically make.  You will need to review what the box plot is showing with the box portion, the divider in the box, and the whiskers.
+
+
+

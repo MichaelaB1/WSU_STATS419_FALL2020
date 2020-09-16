@@ -1,0 +1,36 @@
+---
+title: "Week 3 Assignment"
+author: "Michaela Bayerlova"
+date: "r format(Sys.time(), '%d %B %Y')" 
+output: 
+  pdf_document: 
+    citation_package: natbib
+    latex_engine: pdflatex
+    template: ./../latex-templates/homework.tex
+    fig_caption: true
+    number_section: true
+  html_document:
+    df_print: paged
+course: "STATS 419 Analysis of Multivariate Analysis"
+course-short: STATS419
+instructor: Monte J. Shaffer
+email: michaela.bayerlova@wsu.edu
+wsu_id: 011594781
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r files}
+library(devtools); # required for function source_url to work
+github.path = "https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/";
+#source_url(paste0(github.path, "master/functions/libraries.R"));
+#source_url(paste0(github.path, "master/functions/functions-imdb.R"));
+
+```
+
+

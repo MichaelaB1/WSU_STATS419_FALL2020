@@ -1,0 +1,25 @@
+   nmid = "nm0000226";
+ 	will = grabFilmsForPerson(nmid);
+ 	plot(will$movies.50[,c(1,6,7:10)]);
+  	boxplot(will$movies.50$millions);
+		widx =  which.max(will$movies.50$millions);
+	will$movies.50[widx,];
+		summary(will$movies.50$year);  # bad boys for life ... did data change?
+
+   nmid = "nm0000243";
+ 	denzel = grabFilmsForPerson(nmid);
+ 	plot(denzel$movies.50[,c(1,6,7:10)]);
+  	boxplot(denzel$movies.50$millions);
+		didx =  which.max(denzel$movies.50$millions);
+	denzel$movies.50[didx,];
+		summary(denzel$movies.50$year);
+	
+	par(mfrow=c(1,2));
+	boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions" );
+	boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions" );
+	
+	par(mfrow=c(1,1));
+	
+	# https://www.in2013dollars.com/us/inflation/2000?endYear=1982&amount=100
+	# create variable $millions.2000 to convert all money to 2000 dollars ... based on year 
+	
