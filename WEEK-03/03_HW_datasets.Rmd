@@ -28,16 +28,16 @@ knitr::opts_chunk$set(echo = TRUE,warning=FALSE)
 ```{r files, message=FALSE}
 library(devtools); # required for function source_url to work
 github.path = "https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/";
-source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/libraries.R"));
+source_url(paste0(github.path, "master/functions/libraries.R"));
            
-source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/functions-imdb.R"));
+source_url(paste0(github.path, "master/functions/functions-imdb.R"));
 
 ```
 
 # Matrix
 Create the "rotate matrix" functions described in lecture. Apply to the example "myMatrix".
 ```{r, mychunk-matrix-include, message=FALSE}
-source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/functions-matrix.R"));
+source_url(paste0(github.path, "master/functions/functions-matrix.R"));
 
 myMatrix = matrix( c (
 			                1, 0, 2,
@@ -522,7 +522,7 @@ graphics::plot( tvdf );
 
 
 # Will vs. Denzel
-Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code and in DROPBOX: \__student_access__\unit_01_exploratory_data_analysis\week_02\imdb-example ]  You will have to create a new variable $millions.2000 that converts each movie's $millions based on the $year of the movie, so all dollars are in the same time frame.  You will need inflation data from about 1980-2020 to make this work.
+Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code and in DROPBOX: `\__student_access__\unit_01_exploratory_data_analysis\week_02\imdb-example`]  You will have to create a new variable $millions.2000 that converts each movie's $millions based on the $year of the movie, so all dollars are in the same time frame.  You will need inflation data from about 1980-2020 to make this work.
 ```{r, mychunk-imdb_include, message=FALSE}
 source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/functions-imdb.R"));
 
