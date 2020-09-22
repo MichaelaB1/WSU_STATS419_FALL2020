@@ -20,8 +20,7 @@ wsu_id: NA
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-#tinytex::install_tinytex()
+knitr::opts_chunk$set(echo = TRUE,warning=FALSE)
 ```
 
 
@@ -126,7 +125,13 @@ The Iris flower data set is a multivariate data set. The data set contains four 
 # Personality
 Import "personality-raw.txt" into R.  Remove the V00 column.  Create two new columns from the current column "date_test":  year and week. Stack Overflow may help:  https://stackoverflow.com/questions/22439540/how-to-get-week-numbers-from-dates ... Sort the new data frame by YEAR, WEEK so the newest tests are first ... The newest tests (e.g., 2020 or 2019) are at the top of the data frame.  Then remove duplicates using the unique function based on the column "md5_email".  Save the data frame in the same "pipe-delimited format" ( | is a pipe ) with the headers.  You will keep the new data frame as "personality-clean.txt" for future work (you will not upload it at this time).  In the homework, for this tasks, report how many records your raw dataset had and how many records your clean dataset has.
 ```{r, mychunk-personality}
-my_data = read.delim("C:\\Users\\michaela.bayerlova\\Documents\\STATS 419\\reading assignments\\personality-raw.txt", sep = "|", header = TRUE);
+personality.folder = "C:/Users/michaela.bayerlova/Documents/STATS 419/reading assignments/";
+raw.file = paste0(personality.folder, "personality-raw.txt");
+
+#my_data = read.delim("C:\\Users\\michaela.bayerlova\\Documents\\STATS 419\\reading assignments\\personality-raw.txt", sep = "|", header = TRUE);
+
+my_data = utils::read.csv(raw.file, header=TRUE, sep="|");
+
 head(my_data);
 nrow_raw_data <- nrow(my_data);
 dim(my_data);
@@ -173,9 +178,18 @@ my_data_clean = my_data_sorted[!duplicated(my_data_sorted["md5_email"]), ];
 # how many records your clean dataset has
 nrow_clean_data <- nrow(my_data_clean)
 dim(my_data_clean);
-install.packages("data.table")
-library(data.table);
-fwrite(my_data_clean,"personality-clean.txt", sep="|",col.names = TRUE, row.names = FALSE);
+#install.packages("data.table")
+#library(data.table);
+#fwrite(my_data_clean,"personality-clean.txt", sep="|",col.names = TRUE, row.names = FALSE);
+
+clean.file = paste0(personality.folder, "personality-clean.txt");
+
+
+utils::write.table(my_data_clean, file=clean.file, quote=FALSE, col.names=TRUE, row.names=FALSE, sep="|");
+
+  
+#utils::read.csv(mycache, header=TRUE, sep="|");
+
 
 ```
 
@@ -511,6 +525,7 @@ graphics::plot( tvdf );
 Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code and in DROPBOX: \__student_access__\unit_01_exploratory_data_analysis\week_02\imdb-example ]  You will have to create a new variable $millions.2000 that converts each movie's $millions based on the $year of the movie, so all dollars are in the same time frame.  You will need inflation data from about 1980-2020 to make this work.
 ```{r, mychunk-imdb_include, message=FALSE}
 source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/functions-imdb.R"));
+
 ```
 
 ## Will Smith
