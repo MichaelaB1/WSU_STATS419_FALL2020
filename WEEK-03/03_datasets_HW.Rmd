@@ -144,7 +144,7 @@ doSummary(x);
 
 ## Variance
 ```{r, mychunk-variance}
-doSampleVariance(x, "naive");
+doSampleVariance(x, "two-pass");
 ```
 
 ## Mode
@@ -154,9 +154,146 @@ doMode(x);
 
 
 ### Naive
+```{r,mychunk-variance-naive}
+# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-standardize.R
+
+v.norm = doSampleVariance(x.norm, "naive");
+
+
+# if x is really small
+vsmall.df = as.data.frame( t(unlist(v.norm)) );
+
+x.small = x.norm;
+for(i in 1:20)
+  {
+  # every loop make it 1000 times smaller
+  # notice I am looping over "i" but not using it.
+  x.small = standardizeToFactor(x.small, 1/1000);
+  v.small = doSampleVariance(x.small, "naive");
+    v.row = t(unlist(v.small));
+  vsmall.df = rbind(vsmall.df, v.row);
+  }
+
+vsmall.df;
+
+
+
+# if x is really big
+vlarge.df = as.data.frame( t(unlist(v.norm)) );
+
+x.large = x.norm;
+for(i in 1:20)
+  {
+  # every loop make it 1000 times larger
+  # notice I am looping over "i" but not using it.
+  x.large = standardizeToFactor(x.large, 1000);
+  v.large = doSampleVariance(x.large, "naive");
+    v.row = t(unlist(v.large));
+  vlarge.df = rbind(vlarge.df, v.row);
+  }
+
+vlarge.df;
+
+
+## from these two experiments it looks okay!
+
+## CS purists say it will fail eventually 
+## maybe I have to use a smaller n to demo failure?
+
+## examine the function , the failure point is:    sum2 = sum2 + x[i]*x[i];
+## [+5 Easter to first x-vec of 100 numbers that causes "naive" to fail!]
+## by fail, I mean the "two-pass" approach and built ?sd or ?var function
+## shows something entirely different ...
+
+```
+
 #### Problems with this approach
 ### Traditional Two Pass
+```{r,mychunk-variance-2pass}
+
+v2.norm = doSampleVariance(x.norm, "two-pass");
+v2b.norm = doSampleVariance(x.norm);  # default value is "two-pass" in the function
+v2c.norm = doSampleVariance(x.norm, "garblideljd=-gook"); # if logic defaults to "two-pass"
+
+unlist(v2.norm);
+unlist(v2b.norm);
+unlist(v2c.norm);
+
+```
+
+
 ## Z-scores
+```{r,mychunk-apply-z-score}
+
+# the built in function ?scale you should find useful.
+# a z-score is taken on a vector of data requires x.bar and s.hat
+# generally, we assume x.bar and s.hat comes from the vector of data. 
+# It doesn't have to.
+
+library(digest);
+md5_monte = digest("monte.shaffer@gmail.com", algo="md5");  # no workee???
+md5_monte = "b62c73cdaf59e0a13de495b84030734e";
+
+# jQuery [b62c73cdaf59e0a13de495b84030734e]     https://www.jqueryscript.net/demo/MD5-Hash-String/
+# Javascript [b62c73cdaf59e0a13de495b84030734e] http://md5.mshaffer.com/
+# PHP     [b62c73cdaf59e0a13de495b84030734e]    https://onlinegdb.com/rJUGCTkrw
+# Python enthusiasts:  I recommend WingIDE  ... https://wingware.com/
+# [+5 investigate the issue... write a Python function that passes in a string
+#   and returns a md5 string, write an onlinegdb.com example for C,
+#   and write an onlinegdb.com example for C++ ... summarize your findings.]
+
+row = ndf[ndf$md5_email == md5_monte, ];
+vec.start = getIndexOfDataFrameColumns(row,"V01");  # 5
+vec.end = getIndexOfDataFrameColumns(row,"V60"); # 64
+
+vec = as.numeric( row[vec.start:vec.end] );  # vector functions require "vector form"
+# recall the concept of a vector basis? (e.g., basis of vector space)
+# linear combinations of this basis?
+
+
+vdf = as.data.frame( t(vec) );  # dim(vdf) tells me to transpose it.
+  myRows = c("raw");
+
+z.vec = calculateZscores(vec);
+  vdf = rbind(vdf,z.vec);     myRows=c(myRows,"z-scores");
+
+z.vec30 = standardizeToFactor(vec, 30);
+  vdf = rbind(vdf,z.vec30);  myRows=c(myRows,"30x");
+
+z.vecmin = standardizeToMin(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+  vdf = rbind(vdf,z.vecmin);  myRows=c(myRows,"min");
+
+z.vecmax = standardizeToMax(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+  vdf = rbind(vdf,z.vecmax);  myRows=c(myRows,"max");
+  
+z.vecN = standardizeToN(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+  vdf = rbind(vdf,z.vecN);  myRows=c(myRows,"N");
+
+z.vecSum = standardizeToSum (vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+  vdf = rbind(vdf,z.vecSum);  myRows=c(myRows,"Sum");
+
+z.vecBound = standardizeFromOneRangeToAnother(vec, c(0,1) );  # like z-scores, should rewrite to allow it be passed in, by default it computes
+  vdf = rbind(vdf,z.vecBound);  myRows=c(myRows,"[0,1]");
+
+rownames(vdf) = myRows;
+
+tvdf = as.data.frame( t(vdf) ); # why transpose it?
+
+graphics::plot( tvdf );
+
+# linear transformations are "linear" ... should not be surprising
+# how does perfect linearity relate to "correlation"?
+
+# Multiplying by a negative number (not shown) is also a vector-basis manipulation.
+# As is rotating by an angle.
+# What is an example of a nonlinear combination? 
+# Hint look at your will/denzel problem.
+# plot(will$movies.50[,c(1,6,7:10)]); ... one relationship is strong, nonlinear
+
+
+```
+
+
 
 
 
@@ -225,10 +362,70 @@ df.will.denzel = rbind(new.will, new.denzel);
 
 
 
-
-
 # Side by side comparison
 Build side-by-side box plots on several of the variables (including #6) to compare the two movie stars.  After each box plot, write 2+ sentence describing what you are seeing, and what conclusions you can logically make.  You will need to review what the box plot is showing with the box portion, the divider in the box, and the whiskers.
+```{r,mychunk-side-by-side}
+
+# creating a graphics or plot notebook with example chunks of code would benefit you.
+# Since we have multiple variables, I would look into ?stars
+# You could possibly create an "index" (e.g., a weighted linear combination of
+# the multivariate factors).  To capture "better" and "best", you have to analyze
+# the sub-elements in the index.  Does "popular" mean "best"?  Look at stackoverflow,
+# the most-popular questions, are they an indication of being best?
+
+# a nice resource for some code samples and what plots look like are in the
+# DROPBOX (added 8/28): \__student_access__\sample_latex_files\Multivariate-2009
+# I will likely do a self-evaluation of these samples as an optional video at some point.
+# Scan through the documents, look at visuals you like...
+# Tangent, PAGE 7 of HW#3 has doSegments function which creates "error bars"
+
+# ?stars :  maybe plot the median or mean values ... z-scored?
+#           HW#2, Program#8;
+#           HW#6, Program#2; ... and a few other places in this document
+
+
+#  I could use raw values for the initial plots...
+#  However, I may want to create z-scores ... "pooling" will and denzel data.
+#  That way, the star charts will have the same scale and the z-scores
+#  in a pooled fashion will get it to an "apples-to-apples" comparison.
+#  An index of "betterness" with z-scores would be superior to a raw index.
+#  Again, the quality of the index is the quality of the features defining it.
+#  Is it a "better" index?  Or a "popular" index?
+#  How could we objectively measure "better"?
+
+```
+
+
+### Adjusted Dollars (2000)
+```{r,mychunk-standarize-dollars}
+# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-inflation.R
+
+humanVerseWSU::loadInflationData();
+str(denzel$movies.50);
+denzel$movies.50 = standardizeDollarsInDataFrame(denzel$movies.50, 2000, "millions", "year", "millionsAdj");
+str(denzel$movies.50);
+plot(denzel$movies.50$millions,denzel$movies.50$millionsAdj);
+
+## you should repeat for will (Will Smith) ...
+  
+```
+
+### Total Votes  (Divide by 1,000,000)
+### Average Ratings
+### Year?  Minutes?
+### Metacritic (NA values)
+
+```{r,mychunk-other-standarization}
+
+# I demo'd some standarization procedures earlier in this notebook.  
+#     I will leave it up to you to review that code as you finalize your analysis.
+
+# I believe my z-score calculator will keep NA values as NA ... 
+#       don't omit until you are plotting ... otherwise your dataframes may be
+#       unequal in length.
+
+```
+
 
 
 

@@ -10,3 +10,6 @@ library(tractor.base);  # implode
 library(stringr);
 library(rvest);			# imdb web scraping
 
+install.packages("data.table")
+library(data.table);
+

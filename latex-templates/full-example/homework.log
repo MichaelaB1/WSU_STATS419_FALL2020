@@ -1,12 +1,15 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.3)  5 SEP 2020 22:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.21)  21 SEP 2020 14:06
 entering extended mode
 **./homework.tex
 (homework.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-08-07>
-("C:\Program Files\MiKTeX\tex/latex/base\article.cls"
+L3 programming layer <2020-09-03>
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/base\artic
+le.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-("C:\Program Files\MiKTeX\tex/latex/base\size10.clo"
+
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/base\size1
+0.clo
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count168
@@ -21,31 +24,38 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 )
-("C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics\g
+raphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics\k
+eyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics\g
+raphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics\t
+rig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics-c
+fg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-("C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def"
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/graphics-d
+ef\pdftex.def
+File: pdftex.def 2020/08/26 v1.2 Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/float\float.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/float\floa
+t.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count176
 \float@exts=\toks16
@@ -53,8 +63,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks17
 \@floatcapt=\box46
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/wrapfig\wrapfig.st
-y"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wr
+apfig.sty
 \wrapoverhang=\dimen137
 \WF@size=\dimen138
 \c@WF@wrappedlines=\count177
@@ -62,10 +72,12 @@ y"
 \WF@everypar=\toks18
 Package: wrapfig 2003/01/31  v 3.6
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/moreverb\moreverb.
-sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/moreverb\m
+oreverb.sty
 Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
- ("C:\Program Files\MiKTeX\tex/latex/tools\verbatim.sty"
+
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/tools\verb
+atim.sty
 Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks19
 \verbatim@line=\toks20
@@ -75,8 +87,8 @@ Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
 \tab@size=\count179
 \listing@line=\count180
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/fancyhdr\fancyhdr.
-sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\f
+ancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip49
@@ -89,31 +101,38 @@ s
 \f@nch@O@olf=\skip56
 \f@nch@O@orf=\skip57
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/lastpage\lastpage.
-sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\l
+astpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/setspace\setspace.
-sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/setspace\s
+etspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-) ("C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty"
+)
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\am
+smath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip58
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty"
+
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\am
+stext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\am
+sgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen139
 ))
-("C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\am
+sbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen140
 )
-("C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\am
+sopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count181
@@ -154,7 +173,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
-("C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\a
+msfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -162,7 +182,8 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/amscls\amsthm.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amscls\ams
+thm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks26
 \thm@bodyfont=\toks27
@@ -173,13 +194,17 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip62
 \thm@headsep=\skip63
 \dth@everypar=\toks31
-) ("C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty"
+)
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\a
+mssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-("C:\Program Files\MiKTeX\tex/latex/tools\tabularx.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabu
+larx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 
-("C:\Program Files\MiKTeX\tex/latex/tools\array.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/tools\arra
+y.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen148
 \ar@mcellbox=\box50
@@ -197,25 +222,27 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \TX@cols=\count193
 \TX@ftn=\toks33
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/natbib\natbib.sty"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/natbib\nat
+bib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip66
 \bibsep=\skip67
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count194
 )
-("C:\Users\Alexander Nevsky\AppData\Roaming\MiKTeX\tex/latex/titling\titling.st
-y"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/titling\ti
+tling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip68
 \thanksmargin=\skip69
 \droptitle=\skip70
-) ("C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdfmode.def"
-File: l3backend-pdfmode.def 2020-08-07 L3 backend support: PDF mode
+)
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\
+l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count195
 \l__pdf_internal_box=\box52
-)
-(homework.aux)
+) (homework.aux)
 \openout1 = `homework.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
@@ -232,7 +259,9 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
- ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
+
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/context/base/mki
+i\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count196
 \scratchdimen=\dimen155
@@ -245,7 +274,9 @@ LaTeX Font Info:    ... okay on input line 62.
 \MPnumerator=\count266
 \makeMPintoPDFobject=\count267
 \everyMPtoPDFconversion=\toks35
-) ("C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+)
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-p
+kg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
@@ -256,13 +287,15 @@ Package lastpage Info: Please have a look at the pageslts package at
 LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
 
 
-("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\u
+msa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
 
 
-("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd"
+(C:\Users\michaela.bayerlova\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\u
+msb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <graphics/myfigure.png, id=1, 531.9875pt x 530.98375pt>
@@ -277,27 +310,31 @@ Package pdftex.def Info: graphics/pdffigure.pdf  used on input line 93.
 (pdftex.def)             Requested size: 216.81pt x 216.80946pt.
  [1
 
-{C:/Users/Alexander Nevsky/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2 <
-./graphics/myfigure.png> <./graphics/pdffigure.pdf>] (homework.bbl) 
+{C:/Users/michaela.bayerlova/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2
+ <./graphics/myfigure.png> <./graphics/pdffigure.pdf>] (homework.bbl) 
 AED: lastpage setting LastPage
 [3] (homework.aux) ) 
 Here is how much of TeX's memory you used:
- 3284 strings out of 481212
- 42788 string characters out of 2915693
- 283260 words of memory out of 3000000
- 18826 multiletter control sequences out of 15000+200000
+ 3298 strings out of 481199
+ 45216 string characters out of 2899498
+ 284587 words of memory out of 3000000
+ 18853 multiletter control sequences out of 15000+200000
  542049 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,10n,45p,270b,229s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program File
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/font
-s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
-Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+<C:/Users/michaela.bayerlova/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/michaela.bayerlova/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/micha
+ela.bayerlova/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Users/michaela.bayerlova/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><C:/Users/michaela.bayerlova/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/michaela.bayerlova/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users
+/michaela.bayerlova/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr6.pfb><C:/Users/michaela.bayerlova/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb><C:/Users/michaela.bayerlova/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/michaela.bayerlova
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 Output written on homework.pdf (3 pages, 122729 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)

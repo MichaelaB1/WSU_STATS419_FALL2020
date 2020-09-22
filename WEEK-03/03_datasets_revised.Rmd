@@ -1,7 +1,7 @@
 ---
 title: "Week 3 Assignment"
 author: "Michaela Bayerlova"
-date: "r format(Sys.time(), '%d %B %Y')" 
+date: "`r format(Sys.time(), '%d %B %Y')`" 
 output: 
   pdf_document: 
     citation_package: natbib
@@ -15,7 +15,7 @@ course: "STATS 419 Analysis of Multivariate Analysis"
 course-short: STATS419
 instructor: Monte J. Shaffer
 email: michaela.bayerlova@wsu.edu
-wsu_id: 011594781
+wsu_id: NA
 
 ---
 
@@ -25,12 +25,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-```{r files}
+```{r files, message=FALSE}
 library(devtools); # required for function source_url to work
 github.path = "https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/";
-#source_url(paste0(github.path, "master/functions/libraries.R"));
+source_url(paste0(github.path, "master/functions/libraries.R"));
 #source_url(paste0(github.path, "master/functions/functions-imdb.R"));
 
 ```
+
+reference
+it is in master.bib file!
+
+Malcolm Gladwell\footnote{comb your hair, man!} talks about outliers\citep{Gladwell:2008}.
+
+
 
 
