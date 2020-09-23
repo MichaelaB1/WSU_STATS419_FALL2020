@@ -16,7 +16,6 @@ course-short: STATS419
 instructor: Monte J. Shaffer
 email: michaela.bayerlova@wsu.edu
 wsu_id: NA
-
 ---
 
 ```{r setup, include=FALSE}
@@ -38,6 +37,6 @@ it is in master.bib file!
 
 Malcolm Gladwell\footnote{comb your hair, man!} talks about outliers\citep{Gladwell:2008}.
 
-
-
+The dataset of Will Smith and Denzel Washington and the infrmation about movies they have participated in comes from the IMDB website, which can get updated and therefore is used very up to date\citep{IMDB:2020}.
+hello\citep{Shaffer:2020}.
 

@@ -89,7 +89,7 @@ rotateMatrix270_cc = function(mat)
 
 
 ```{r, mychunk-matrix}
-#source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/WEEK-03/functions/HW2_functions.R"));
+#source_url(paste0(github.path, "master/WEEK-03/functions/HW2_functions.R"));
 # Rotate clockwise
 rotateMatrix90(myMatrix);
 rotateMatrix180(myMatrix);
@@ -132,7 +132,7 @@ raw.file = paste0(personality.folder, "personality-raw.txt");
 
 my_data = utils::read.csv(raw.file, header=TRUE, sep="|");
 
-head(my_data);
+#head(my_data);
 nrow_raw_data <- nrow(my_data);
 dim(my_data);
 
@@ -167,7 +167,7 @@ if(date_index == 1)
 
 my_data = my_data[, reorder];
 my_data_sorted = my_data[ order(-my_data[,date_index],-my_data[,(1+date_index)]), ];
-head(my_data_sorted[,1:5]);
+#head(my_data_sorted[,1:5]);
 
 # Remove duplicates using the unique function based on the column "md5_email", only leave most recent
 #my_data <- my_data[!duplicated(my_data$md5_email),];
@@ -209,8 +209,7 @@ x.unif = runif(100,0,1);
 s.unif = doStatsSummary ( x.unif );
 str(s.unif);  # mode is pretty meaningless on this data
 
-# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-stats.R
-# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-vector.R
+
 
 #################################################################
 
@@ -248,7 +247,8 @@ doStatsSummary = function(x)
 
 	result$ylim = c( freqMin(xx), freqMax(xx) );
 
-	# you could later get indexes of each mode(freq.max)/freq.min using findAllIndexesWithValueInVector
+	# you could later get indexes of each mode(freq.max)/freq.min
+	#using findAllIndexesWithValueInVector
 
 	result$sd = stats::sd(xx);
 	result$var = stats::var(xx);
@@ -368,7 +368,8 @@ calculateZscores = function(x, x.bar=NULL, s.hat=NULL)
 	x.bar = dsv$x.bar;
 	s.hat = dsv$s.sd;
 
-	if(is.null(s.hat)) { return (NULL); }  # we take care of division by zero in our custom sampleVarianceFunction
+	if(is.null(s.hat)) { return (NULL); }  # we take care of 
+	#division by zero in our custom sampleVarianceFunction
 
 	(x - x.bar) / s.hat;
 	}
@@ -379,7 +380,8 @@ calculateZscores = function(x, x.bar=NULL, s.hat=NULL)
 ### Naive
 
 ```{r,mychunk-variance-naive}
-# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-standardize.R
+# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/
+#master/humanVerseWSU/R/functions-standardize.R
 
 v.norm = doSampleVariance(x.norm, "naive");
 
@@ -484,19 +486,24 @@ z.vec = calculateZscores(vec);
 z.vec30 = standardizeToFactor(vec, 30);
   vdf = rbind(vdf,z.vec30);  myRows=c(myRows,"30x");
 
-z.vecmin = standardizeToMin(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+z.vecmin = standardizeToMin(vec);  
+# like z-scores, should rewrite to allow it be passed in, by default it computes
   vdf = rbind(vdf,z.vecmin);  myRows=c(myRows,"min");
 
-z.vecmax = standardizeToMax(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+z.vecmax = standardizeToMax(vec);  
+# like z-scores, should rewrite to allow it be passed in, by default it computes
   vdf = rbind(vdf,z.vecmax);  myRows=c(myRows,"max");
   
-z.vecN = standardizeToN(vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+z.vecN = standardizeToN(vec);  
+# like z-scores, should rewrite to allow it be passed in, by default it computes
   vdf = rbind(vdf,z.vecN);  myRows=c(myRows,"N");
 
-z.vecSum = standardizeToSum (vec);  # like z-scores, should rewrite to allow it be passed in, by default it computes
+z.vecSum = standardizeToSum (vec);  
+# like z-scores, should rewrite to allow it be passed in, by default it computes
   vdf = rbind(vdf,z.vecSum);  myRows=c(myRows,"Sum");
 
-z.vecBound = standardizeFromOneRangeToAnother(vec, c(0,1) );  # like z-scores, should rewrite to allow it be passed in, by default it computes
+z.vecBound = standardizeFromOneRangeToAnother(vec, c(0,1) );  
+# like z-scores, should rewrite to allow it be passed in, by default it computes
   vdf = rbind(vdf,z.vecBound);  myRows=c(myRows,"[0,1]");
 
 rownames(vdf) = myRows;
@@ -523,10 +530,11 @@ graphics::plot( tvdf );
 
 # Will vs. Denzel
 Compare Will Smith and Denzel Washington. [See 03_n greater 1-v2.txt for the necessary functions and will-vs-denzel.txt for some sample code and in DROPBOX: `\__student_access__\unit_01_exploratory_data_analysis\week_02\imdb-example`]  You will have to create a new variable $millions.2000 that converts each movie's $millions based on the $year of the movie, so all dollars are in the same time frame.  You will need inflation data from about 1980-2020 to make this work.
+`The dataset of Will Smith and Denzel Washington and the infrmation about movies they have participated in comes from the IMDB website, which can get updated and therefore is used very up to date.\citep{IMDB:2020}.`
 ```{r, mychunk-imdb_include, message=FALSE}
-source_url(paste0("https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/master/functions/functions-imdb.R"));
-
+source_url(paste0(github.path,"master/functions/functions-imdb.R"));
 ```
+
 
 ## Will Smith
 ```{r, mychunk-will, fig.cap= c("Will Smith scatterplot: IMDB(2020)", "Will Smith boxplot raw millions: IMDB(2020)")}
@@ -552,7 +560,7 @@ nmid = "nm0000243";
 ```
 
 ## Boxplot of Top-50 movies using Raw Dollars
-```{r, mychunk-boxplot-raw}
+```{r, mychunk-boxplot-raw, fig.cap= c("Will Smith vs Denzel Washington boxplot of Top-50 movies using Raw Millions: IMDB(2020)")}
 par(mfrow=c(1,2));
 	boxplot(will$movies.50$millions, main=will$name, ylim=c(0,360), ylab="Raw Millions" );
 	boxplot(denzel$movies.50$millions, main=denzel$name, ylim=c(0,360), ylab="Raw Millions" );
@@ -591,22 +599,147 @@ df.will.denzel = rbind(new.will, new.denzel);
 Build side-by-side box plots on several of the variables (including #6) to compare the two movie stars.  After each box plot, write 2+ sentence describing what you are seeing, and what conclusions you can logically make.  You will need to review what the box plot is showing with the box portion, the divider in the box, and the whiskers.
 
 ## Adjusted Dollars (2000)
-```{r,mychunk-standarize-dollars}
-# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-inflation.R
+### Will Smith Standardize Dollars
+```{r,mychunk-standarize-dollars-will, fig.cap= c("Will Smith scatterplot of Adjusted Millions: IMDB(2020)")}
+# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU
+#master/humanVerseWSU/R/functions-inflation.R
+
+humanVerseWSU::loadInflationData();
+str(will$movies.50);
+will$movies.50 = standardizeDollarsInDataFrame(will$movies.50, 2000, "millions", "year", "millionsAdj");
+str(will$movies.50);
+plot(will$movies.50$millions,will$movies.50$millionsAdj);
+```
+
+### Denzel Washington Standardize Dollars
+```{r,mychunk-standarize-dollars-denzel, fig.cap= c("Denzel Washington scatterplot of Adjusted Millions: IMDB(2020)")}
+# https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU
+#master/humanVerseWSU/R/functions-inflation.R
 
 humanVerseWSU::loadInflationData();
 str(denzel$movies.50);
 denzel$movies.50 = standardizeDollarsInDataFrame(denzel$movies.50, 2000, "millions", "year", "millionsAdj");
 str(denzel$movies.50);
 plot(denzel$movies.50$millions,denzel$movies.50$millionsAdj);
-
-## you should repeat for will (Will Smith) ...
-  
 ```
 
 ## Total Votes  (Divide by 1,000,000)
-## Average Ratings
-## Year?  Minutes?
-## Metacritic (NA values)
+### Votes for Will Smith
+```{r,mychunk-total-votes-will, fig.cap= c("Will Smith boxplot of Votes: IMDB(2020)")}
+boxplot(will$movies$votes);
+widx =  which.max(will$movies$votes);
+will$movies[widx,];
+total.votes.w = will$movies$votes
+will.votes = 0;
+for (vote in total.votes.w){
+  will.votes = will.votes + total.votes.w[i];
+}
+will.votes;
+will.votel.p = will.votes/1000000;
+```
 
+
+### Votes for Denzel Washington
+```{r,mychunk-total-votes-will, , fig.cap= c("Denzel Washington boxplot of Votes: IMDB(2020)")}
+boxplot(denzel$movies$votes);
+widx =  which.max(denzel$movies$votes);
+denzel$movies[widx,];
+total.votes.d = denzel$movies$votes
+denzel.votes = 0;
+for (vote in total.votes.d){
+  denzel.votes = denzel.votes + total.votes.d[i];
+}
+denzel.votes;
+denzel.votes.p = denzel.votes/1000000;
+```
+
+
+## Average Ratings
+### Average Ratings Will Smith
+```{r,mychunk-total-ratings-will, , fig.cap= c("Will Smith boxplot of Ratings: IMDB(2020)")}
+boxplot(will$movies$ratings);
+widx =  which.max(will$movies$ratings);
+will$movies[widx,];
+total.ratings.w = will$movies$ratings
+will.ratings = 0;
+for (rating in total.ratings.w){
+  will.ratings = will.ratings + total.ratings.w[i];
+}
+will.ratings;
+summary(will$movies.$ratings);
+```
+
+
+### Average Ratings Denzel Washington
+```{r,mychunk-total-ratings-denzel, fig.cap= c("Denzel Washington boxplot of Ratings: IMDB(2020)")}
+boxplot(denzel$movies$ratings);
+widx =  which.max(denzel$movies$ratings);
+denzel$movies[widx,];
+total.ratings.d = denzel$movies$ratings
+denzel.ratings = 0;
+for (rating in total.ratings.d){
+  denzel.ratings = denzel.ratings + total.ratings.d[i];
+}
+denzel.ratings;
+summary(denzel$movies.$ratings);
+```
+
+
+## Who has the longest total and average Movie length in Minutes?
+### Lenght of Movies Will Smith
+```{r,mychunk-total-movie-length-will, fig.cap= c("Will Smith boxplot of Minutes: IMDB(2020)")}
+boxplot(will$movies$minutes);
+widx =  which.max(will$movies$minutes);
+will$movies[widx,];
+total.minutes.w = will$movies$minutes
+will.minutes = 0;
+for (minute in total.minutes.w){
+  will.minutes = will.minutes + total.minutes.w[i];
+}
+will.minutes;
+summary(will$movies.$minutes);
+```
+
+### Lenght of Movies Denzel Washington
+```{r,mychunk-total-movie-length-denzel, fig.cap= c("Denzel Washington boxplot of Minutes: IMDB(2020)")}
+boxplot(denzel$movies$minutes);
+widx =  which.max(denzel$movies$minutes);
+denzel$movies[widx,];
+total.minutes.d = denzel$movies$minutes
+denzel.minutes = 0;
+for (minute in total.minutes.d){
+  denzel.minutes = denzel.minutes + total.minutes.d[i];
+}
+denzel.minutes;
+summary(denzel$movies.$minutes);
+```
+
+## Metacritic (NA values)
+### Metacritic of Will Smith Movies
+```{r,mychunk-metacritic-will, fig.cap= c("Will Smith boxplot of Metacritic: IMDB(2020)")}
+boxplot(will$movies$metacritic);
+widx =  which.max(will$movies$metacritic);
+will$movies[widx,];
+total.metacritic.w = will$movies$metacritic
+will.metacritic = 0;
+for (meta in total.metacritic.w){
+  will.metacritic = will.metacritic + total.metacritic.w[i];
+}
+will.metacritic;
+summary(will$movies.$metacritic);
+```
+
+### Metacritic of Denzel Washington Movies
+```{r,mychunk-metacritic-denzel, fig.cap= c("Denzel Washington boxplot of Metacritic: IMDB(2020)")}
+boxplot(denzel$movies$metacritic);
+widx =  which.max(denzel$movies$metacritic);
+denzel$movies[widx,];
+total.metacritic.d = denzel$movies$metacritic
+denzel.metacritic = 0;
+for (meta in total.metacritic.d){
+  denzel.metacritic = denzel.metacritic + total.metacritic.d[i];
+}
+denzel.metacritic;
+summary(denzel$movies.$metacritic);
+```
 
