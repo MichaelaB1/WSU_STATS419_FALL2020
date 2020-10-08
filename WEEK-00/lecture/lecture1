@@ -1,0 +1,1582 @@
+
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> install.packages("tidyverse", dependencies=T);
+Installing package into 
+(as 
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies 
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/colorspace_1.4-1.zip'
+Content type 'application/zip' length 2550657 bytes (2.4 MB)
+downloaded 2.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/farver_2.0.3.zip'
+Content type 'application/zip' length 1912108 bytes (1.8 MB)
+downloaded 1.8 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/labeling_0.3.zip'
+Content type 'application/zip' length 62937 bytes (61 KB)
+downloaded 61 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/munsell_0.5.0.zip'
+Content type 'application/zip' length 245301 bytes (239 KB)
+downloaded 239 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/RColorBrewer_1.1-2.zip'
+Content type 'application/zip' length 55569 bytes (54 KB)
+downloaded 54 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/viridisLite_0.3.0.zip'
+Content type 'application/zip' length 60731 bytes (59 KB)
+downloaded 59 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rematch_1.0.1.zip'
+Content type 'application/zip' length 16124 bytes (15 KB)
+downloaded 15 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/generics_0.0.2.zip'
+Content type 'application/zip' length 65267 bytes (63 KB)
+downloaded 63 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/DBI_1.1.0.zip'
+Content type 'application/zip' length 607070 bytes (592 KB)
+downloaded 592 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/tidyselect_1.1.0.zip'
+Content type 'application/zip' length 203278 bytes (198 KB)
+downloaded 198 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/blob_1.2.1.zip'
+Content type 'application/zip' length 47741 bytes (46 KB)
+downloaded 46 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rlang_0.4.7.zip'
+Content type 'application/zip' length 1149762 bytes (1.1 MB)
+downloaded 1.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/vctrs_0.3.4.zip'
+Content type 'application/zip' length 1224614 bytes (1.2 MB)
+downloaded 1.2 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/gtable_0.3.0.zip'
+Content type 'application/zip' length 434070 bytes (423 KB)
+downloaded 423 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/isoband_0.2.2.zip'
+Content type 'application/zip' length 3237139 bytes (3.1 MB)
+downloaded 3.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/scales_1.1.1.zip'
+Content type 'application/zip' length 561682 bytes (548 KB)
+downloaded 548 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/cellranger_1.1.0.zip'
+Content type 'application/zip' length 104840 bytes (102 KB)
+downloaded 102 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/progress_1.2.2.zip'
+Content type 'application/zip' length 85408 bytes (83 KB)
+downloaded 83 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/selectr_0.4-2.zip'
+Content type 'application/zip' length 494424 bytes (482 KB)
+downloaded 482 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/cpp11_0.2.1.zip'
+Content type 'application/zip' length 214288 bytes (209 KB)
+downloaded 209 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/base64enc_0.1-3.zip'
+Content type 'application/zip' length 43488 bytes (42 KB)
+downloaded 42 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/tinytex_0.25.zip'
+Content type 'application/zip' length 111227 bytes (108 KB)
+downloaded 108 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/broom_0.7.0.zip'
+Content type 'application/zip' length 1680220 bytes (1.6 MB)
+downloaded 1.6 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/dbplyr_1.4.4.zip'
+Content type 'application/zip' length 644522 bytes (629 KB)
+downloaded 629 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/dplyr_1.0.2.zip'
+Content type 'application/zip' length 1527701 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/forcats_0.5.0.zip'
+Content type 'application/zip' length 356222 bytes (347 KB)
+downloaded 347 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/ggplot2_3.3.2.zip'
+Content type 'application/zip' length 4068917 bytes (3.9 MB)
+downloaded 3.9 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/haven_2.3.1.zip'
+Content type 'application/zip' length 1062679 bytes (1.0 MB)
+downloaded 1.0 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/hms_0.5.3.zip'
+Content type 'application/zip' length 109752 bytes (107 KB)
+downloaded 107 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/lubridate_1.7.9.zip'
+Content type 'application/zip' length 1601872 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/modelr_0.1.8.zip'
+Content type 'application/zip' length 203297 bytes (198 KB)
+downloaded 198 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/readr_1.3.1.zip'
+Content type 'application/zip' length 1550727 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/readxl_1.3.1.zip'
+Content type 'application/zip' length 1526064 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/reprex_0.3.0.zip'
+Content type 'application/zip' length 430411 bytes (420 KB)
+downloaded 420 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rvest_0.3.6.zip'
+Content type 'application/zip' length 1514299 bytes (1.4 MB)
+downloaded 1.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/tidyr_1.1.2.zip'
+Content type 'application/zip' length 1218224 bytes (1.2 MB)
+downloaded 1.2 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/feather_0.3.5.zip'
+Content type 'application/zip' length 682808 bytes (666 KB)
+downloaded 666 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rmarkdown_2.3.zip'
+Content type 'application/zip' length 3632104 bytes (3.5 MB)
+downloaded 3.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/tidyverse_1.3.0.zip'
+Content type 'application/zip' length 440096 bytes (429 KB)
+downloaded 429 KB
+
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+> library(tidyverse);
+-- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+v ggplot2 3.3.2     v purrr   0.3.4
+v tibble  3.0.1     v dplyr   1.0.2
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.5.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning messages:
+1: package 
+2: package 
+3: package 
+4: package 
+5: package 
+6: package 
+7: package 
+8: package 
+9: package 
+> update.packages();
+backports :
+ Version 1.1.6 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.1.9 available at https://cloud.r-project.org
+devtools :
+ Version 2.3.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 2.3.1 available at https://cloud.r-project.org
+DT :
+ Version 0.13 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 0.15 available at https://cloud.r-project.org
+ellipsis :
+ Version 0.3.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 0.3.1 available at https://cloud.r-project.org
+fs :
+ Version 1.4.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.5.0 available at https://cloud.r-project.org
+git2r :
+ Version 0.26.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 0.27.1 available at https://cloud.r-project.org
+glue :
+ Version 1.4.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.4.2 available at https://cloud.r-project.org
+htmltools :
+ Version 0.4.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 0.5.0 available at https://cloud.r-project.org
+httr :
+ Version 1.4.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.4.2 available at https://cloud.r-project.org
+jsonlite :
+ Version 1.6.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.7.1 available at https://cloud.r-project.org
+knitr :
+ Version 1.28 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.29 available at https://cloud.r-project.org
+later :
+ Version 1.0.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.1.0.1 available at https://cloud.r-project.org
+openssl :
+ Version 1.4.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.4.2 available at https://cloud.r-project.org
+pillar :
+ Version 1.4.3 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.4.6 available at https://cloud.r-project.org
+pkgbuild :
+ Version 1.0.7 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.1.0 available at https://cloud.r-project.org
+pkgload :
+ Version 1.0.2 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.1.0 available at https://cloud.r-project.org
+processx :
+ Version 3.4.2 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 3.4.4 available at https://cloud.r-project.org
+promises :
+ Version 1.1.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.1.1 available at https://cloud.r-project.org
+ps :
+ Version 1.3.2 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.3.4 available at https://cloud.r-project.org
+Rcpp :
+ Version 1.0.4.6 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.0.5 available at https://cloud.r-project.org
+rematch2 :
+ Version 2.1.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 2.1.2 available at https://cloud.r-project.org
+remotes :
+ Version 2.1.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 2.2.0 available at https://cloud.r-project.org
+roxygen2 :
+ Version 7.1.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 7.1.1 available at https://cloud.r-project.org
+rversions :
+ Version 2.0.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 2.0.2 available at https://cloud.r-project.org
+sys :
+ Version 3.3 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 3.4 available at https://cloud.r-project.org
+tibble :
+ Version 3.0.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 3.0.3 available at https://cloud.r-project.org
+usethis :
+ Version 1.6.0 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.6.1 available at https://cloud.r-project.org
+xfun :
+ Version 0.13 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 0.16 available at https://cloud.r-project.org
+xml2 :
+ Version 1.3.1 installed in C:/Users/michaela.bayerlova/Documents/R/win-library/3.6 
+ Version 1.3.2 available at https://cloud.r-project.org
+boot :
+ Version 1.3-23 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 1.3-25 available at https://cloud.r-project.org
+class :
+ Version 7.3-15 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 7.3-17 available at https://cloud.r-project.org
+KernSmooth :
+ Version 2.23-16 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 2.23-17 available at https://cloud.r-project.org
+lattice :
+ Version 0.20-38 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 0.20-41 available at https://cloud.r-project.org
+MASS :
+ Version 7.3-51.4 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 7.3-52 available at https://cloud.r-project.org
+mgcv :
+ Version 1.8-31 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 1.8-33 available at https://cloud.r-project.org
+nlme :
+ Version 3.1-142 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 3.1-149 available at https://cloud.r-project.org
+nnet :
+ Version 7.3-12 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 7.3-14 available at https://cloud.r-project.org
+spatial :
+ Version 7.3-11 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 7.3-12 available at https://cloud.r-project.org
+survival :
+ Version 3.1-8 installed in C:/Program Files/R/R-3.6.2/library 
+ Version 3.2-3 available at https://cloud.r-project.org
+
+  There are binary versions available but the source versions are later:
+         binary source needs_compilation
+jsonlite  1.7.0  1.7.1              TRUE
+processx  3.4.3  3.4.4              TRUE
+
+  Binaries will be installed
+Warning: package 
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/backports_1.1.9.zip'
+Content type 'application/zip' length 87603 bytes (85 KB)
+downloaded 85 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/devtools_2.3.1.zip'
+Content type 'application/zip' length 341351 bytes (333 KB)
+downloaded 333 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/DT_0.15.zip'
+Content type 'application/zip' length 1744377 bytes (1.7 MB)
+downloaded 1.7 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/ellipsis_0.3.1.zip'
+Content type 'application/zip' length 46046 bytes (44 KB)
+downloaded 44 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/fs_1.5.0.zip'
+Content type 'application/zip' length 810271 bytes (791 KB)
+downloaded 791 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/git2r_0.27.1.zip'
+Content type 'application/zip' length 3688078 bytes (3.5 MB)
+downloaded 3.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/glue_1.4.2.zip'
+Content type 'application/zip' length 154814 bytes (151 KB)
+downloaded 151 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/htmltools_0.5.0.zip'
+Content type 'application/zip' length 233066 bytes (227 KB)
+downloaded 227 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/httr_1.4.2.zip'
+Content type 'application/zip' length 518974 bytes (506 KB)
+downloaded 506 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/jsonlite_1.7.0.zip'
+Content type 'application/zip' length 1168460 bytes (1.1 MB)
+downloaded 1.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/knitr_1.29.zip'
+Content type 'application/zip' length 1435677 bytes (1.4 MB)
+downloaded 1.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/later_1.1.0.1.zip'
+Content type 'application/zip' length 685522 bytes (669 KB)
+downloaded 669 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/openssl_1.4.2.zip'
+Content type 'application/zip' length 3990499 bytes (3.8 MB)
+downloaded 3.8 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/pillar_1.4.6.zip'
+Content type 'application/zip' length 182237 bytes (177 KB)
+downloaded 177 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/pkgbuild_1.1.0.zip'
+Content type 'application/zip' length 141103 bytes (137 KB)
+downloaded 137 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/pkgload_1.1.0.zip'
+Content type 'application/zip' length 163275 bytes (159 KB)
+downloaded 159 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/processx_3.4.3.zip'
+Content type 'application/zip' length 453566 bytes (442 KB)
+downloaded 442 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/promises_1.1.1.zip'
+Content type 'application/zip' length 1785307 bytes (1.7 MB)
+downloaded 1.7 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/ps_1.3.4.zip'
+Content type 'application/zip' length 334220 bytes (326 KB)
+downloaded 326 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/Rcpp_1.0.5.zip'
+Content type 'application/zip' length 3125518 bytes (3.0 MB)
+downloaded 3.0 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rematch2_2.1.2.zip'
+Content type 'application/zip' length 47408 bytes (46 KB)
+downloaded 46 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/remotes_2.2.0.zip'
+Content type 'application/zip' length 388763 bytes (379 KB)
+downloaded 379 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/roxygen2_7.1.1.zip'
+Content type 'application/zip' length 1176512 bytes (1.1 MB)
+downloaded 1.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rversions_2.0.2.zip'
+Content type 'application/zip' length 68694 bytes (67 KB)
+downloaded 67 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/sys_3.4.zip'
+Content type 'application/zip' length 59975 bytes (58 KB)
+downloaded 58 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/usethis_1.6.1.zip'
+Content type 'application/zip' length 603651 bytes (589 KB)
+downloaded 589 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/xfun_0.16.zip'
+Content type 'application/zip' length 233860 bytes (228 KB)
+downloaded 228 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/xml2_1.3.2.zip'
+Content type 'application/zip' length 3178055 bytes (3.0 MB)
+downloaded 3.0 MB
+
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+package 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+package 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+Warning: cannot remove prior installation of package 
+Warning: restored 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+Warning in install.packages(update[instlib == l, "Package"], l, repos = repos,  :
+  'lib = "C:/Program Files/R/R-3.6.2/library"' is not writable
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/boot_1.3-25.zip'
+Content type 'application/zip' length 643928 bytes (628 KB)
+downloaded 628 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/class_7.3-17.zip'
+Content type 'application/zip' length 108471 bytes (105 KB)
+downloaded 105 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/KernSmooth_2.23-17.zip'
+Content type 'application/zip' length 115844 bytes (113 KB)
+downloaded 113 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/lattice_0.20-41.zip'
+Content type 'application/zip' length 1174377 bytes (1.1 MB)
+downloaded 1.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/MASS_7.3-52.zip'
+Content type 'application/zip' length 1190279 bytes (1.1 MB)
+downloaded 1.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/mgcv_1.8-33.zip'
+Content type 'application/zip' length 3315689 bytes (3.2 MB)
+downloaded 3.2 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/nlme_3.1-149.zip'
+Content type 'application/zip' length 2377753 bytes (2.3 MB)
+downloaded 2.3 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/nnet_7.3-14.zip'
+Content type 'application/zip' length 138033 bytes (134 KB)
+downloaded 134 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/spatial_7.3-12.zip'
+Content type 'application/zip' length 165699 bytes (161 KB)
+downloaded 161 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/survival_3.2-3.zip'
+Content type 'application/zip' length 7849217 bytes (7.5 MB)
+downloaded 7.5 MB
+
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+Warning messages:
+1: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\backports\libs\x64\backports.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\backports\libs\x64\backports.dll: Permission denied
+2: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\ellipsis\libs\x64\ellipsis.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\ellipsis\libs\x64\ellipsis.dll: Permission denied
+3: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\fs\libs\x64\fs.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\fs\libs\x64\fs.dll: Permission denied
+4: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\glue\libs\x64\glue.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\glue\libs\x64\glue.dll: Permission denied
+5: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\jsonlite\libs\x64\jsonlite.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\jsonlite\libs\x64\jsonlite.dll: Permission denied
+6: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\Rcpp\libs\x64\Rcpp.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\Rcpp\libs\x64\Rcpp.dll: Permission denied
+7: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\00LOCK\xml2\libs\x64\xml2.dll to C:\Users\michaela.bayerlova\Documents\R\win-library\3.6\xml2\libs\x64\xml2.dll: Permission denied
+> install.packages("pryr", dependencies=T);
+Installing package into 
+(as 
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/pryr_0.1.4.zip'
+Content type 'application/zip' length 753380 bytes (735 KB)
+downloaded 735 KB
+
+package 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+> library(pryr);
+Registered S3 method overwritten by 'pryr':
+  method      from
+  print.bytes Rcpp
+
+Attaching package: 
+
+The following objects are masked from 
+
+    compose, partial
+
+Warning message:
+package 
+> mem_used();
+63 MB
+> library(ggplot2);
+> library(MASS);
+
+Attaching package: 
+
+The following object is masked from 
+
+    select
+
+Warning message:
+package 
+> library(lmtest);
+Error in library(lmtest) : there is no package called 
+> install.packages("lmtest", dependencies=T);
+Installing package into 
+(as 
+also installing the dependencies 
+
+
+  There is a binary version available but the source version is later:
+                   binary      source needs_compilation
+RcppArmadillo 0.9.900.2.0 0.9.900.3.0              TRUE
+
+  Binaries will be installed
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/matrixStats_0.56.0.zip'
+Content type 'application/zip' length 1727572 bytes (1.6 MB)
+downloaded 1.6 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/RcppArmadillo_0.9.900.2.0.zip'
+Content type 'application/zip' length 2376604 bytes (2.3 MB)
+downloaded 2.3 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/zip_2.1.1.zip'
+Content type 'application/zip' length 743452 bytes (726 KB)
+downloaded 726 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/SparseM_1.78.zip'
+Content type 'application/zip' length 1070197 bytes (1.0 MB)
+downloaded 1.0 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/MatrixModels_0.4-1.zip'
+Content type 'application/zip' length 356908 bytes (348 KB)
+downloaded 348 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/conquer_1.0.2.zip'
+Content type 'application/zip' length 674916 bytes (659 KB)
+downloaded 659 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/sp_1.4-2.zip'
+Content type 'application/zip' length 1891801 bytes (1.8 MB)
+downloaded 1.8 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/data.table_1.13.0.zip'
+Content type 'application/zip' length 2521580 bytes (2.4 MB)
+downloaded 2.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/openxlsx_4.1.5.zip'
+Content type 'application/zip' length 2594632 bytes (2.5 MB)
+downloaded 2.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/minqa_1.2.4.zip'
+Content type 'application/zip' length 673693 bytes (657 KB)
+downloaded 657 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/nloptr_1.2.2.2.zip'
+Content type 'application/zip' length 1078584 bytes (1.0 MB)
+downloaded 1.0 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/statmod_1.4.34.zip'
+Content type 'application/zip' length 285416 bytes (278 KB)
+downloaded 278 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/RcppEigen_0.3.3.7.0.zip'
+Content type 'application/zip' length 2676316 bytes (2.6 MB)
+downloaded 2.6 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/carData_3.0-4.zip'
+Content type 'application/zip' length 1821316 bytes (1.7 MB)
+downloaded 1.7 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/abind_1.4-5.zip'
+Content type 'application/zip' length 63845 bytes (62 KB)
+downloaded 62 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/pbkrtest_0.4-8.6.zip'
+Content type 'application/zip' length 275845 bytes (269 KB)
+downloaded 269 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/quantreg_5.61.zip'
+Content type 'application/zip' length 1806225 bytes (1.7 MB)
+downloaded 1.7 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/maptools_1.0-2.zip'
+Content type 'application/zip' length 2177760 bytes (2.1 MB)
+downloaded 2.1 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/rio_0.5.16.zip'
+Content type 'application/zip' length 505313 bytes (493 KB)
+downloaded 493 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/lme4_1.1-23.zip'
+Content type 'application/zip' length 5701047 bytes (5.4 MB)
+downloaded 5.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/Formula_1.2-3.zip'
+Content type 'application/zip' length 181517 bytes (177 KB)
+downloaded 177 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/zoo_1.8-8.zip'
+Content type 'application/zip' length 1096156 bytes (1.0 MB)
+downloaded 1.0 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/car_3.0-9.zip'
+Content type 'application/zip' length 1565118 bytes (1.5 MB)
+downloaded 1.5 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/strucchange_1.5-2.zip'
+Content type 'application/zip' length 986629 bytes (963 KB)
+downloaded 963 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/sandwich_2.5-1.zip'
+Content type 'application/zip' length 1382156 bytes (1.3 MB)
+downloaded 1.3 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/dynlm_0.3-6.zip'
+Content type 'application/zip' length 55711 bytes (54 KB)
+downloaded 54 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/AER_1.2-9.zip'
+Content type 'application/zip' length 2498237 bytes (2.4 MB)
+downloaded 2.4 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/lmtest_0.9-37.zip'
+Content type 'application/zip' length 363266 bytes (354 KB)
+downloaded 354 KB
+
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+package 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+> library(lmtest);
+Loading required package: zoo
+
+Attaching package: 
+
+The following objects are masked from 
+
+    as.Date, as.Date.numeric
+
+Warning messages:
+1: package 
+2: package 
+> Sys.time();
+[1] "2020-09-07 01:44:41 PDT"
+> myStart = Sys.time();
+> Sys.sleep(5); # sleep for 5 seconds
+> myEnd = Sys.time();
+> myEnd
+[1] "2020-09-07 01:46:59 PDT"
+> myEnd - myStart
+Time difference of 7.097019 secs
+> myDiff = myEnd - myStart
+> myDiff.numeric = as.numeric(myEnd) - as.numeric(myStart)
+> myDiff;
+Time difference of 7.097019 secs
+> myDiff.numeric;
+[1] 7.097019
+> n.cores <- detectCores()
+Error in detectCores() : could not find function "detectCores"
+> n.cores <- detectCores();
+Error in detectCores() : could not find function "detectCores"
+> n.cores
+Error: object 'n.cores' not found
+> 77detectCores
+Error: unexpected symbol in "77detectCores"
+> library(parallel);
+> n.cores <- detectCores()
+> n.cores
+[1] 8
+> install.packages("mvnfast", dependencies=T);
+Installing package into 
+(as 
+also installing the dependencies 
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/mvtnorm_1.1-1.zip'
+Content type 'application/zip' length 271534 bytes (265 KB)
+downloaded 265 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/microbenchmark_1.4-7.zip'
+Content type 'application/zip' length 72222 bytes (70 KB)
+downloaded 70 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/plyr_1.8.6.zip'
+Content type 'application/zip' length 1314846 bytes (1.3 MB)
+downloaded 1.3 MB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/RhpcBLASctl_0.20-137.zip'
+Content type 'application/zip' length 99500 bytes (97 KB)
+downloaded 97 KB
+
+trying URL 'https://cloud.r-project.org/bin/windows/contrib/3.6/mvnfast_0.2.5.zip'
+Content type 'application/zip' length 863679 bytes (843 KB)
+downloaded 843 KB
+
+package 
+package 
+package 
+package 
+package 
+
+The downloaded binary packages are in
+        C:\Users\michaela.bayerlova\AppData\Local\Temp\RtmpA7cFWg\downloaded_packages
+> library(mvnfast);
+Warning message:
+package 
+> getwd();
+[1] "C:/Users/michaela.bayerlova/Documents"
+> setwd("C:\Users\michaela.bayerlova\Documents\STATS 419\lecture");
+Error: '\U' used without hex digits in character string starting ""C:\U"
+> setwd("C:\Users\michaela.bayerlova\Documents\STATS 419\lecture");
+Error: '\U' used without hex digits in character string starting ""C:\U"
+> setwd("C:\\Users\\michaela.bayerlova\\Documents\\STATS 419\\lecture");
+> getwd();
+[1] "C:/Users/michaela.bayerlova/Documents/STATS 419/lecture"
+> mydir = getwd();
+> mydir;
+[1] "C:/Users/michaela.bayerlova/Documents/STATS 419/lecture"
+> # this script will generate a file 'R.xml' for auto-completion in Notepad++; I
+> 
+> # wrote it when my programming style was pretty bad, but this script seems to be
+> 
+> # still functional anyway
+> 
+> 
+> 
+> # R.xml will be generated under your current work directory: getwd()
+> 
+> 
+> 
+> # load some packages to the search path:
+> 
+> pkg <- installed.packages()[, 'Priority']
+> 
+> sapply(names(pkg)[!is.na(pkg)], library, character.only = TRUE)
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+
+Attaching package: 
+
+The following object is masked from 
+
+    melanoma
+
+Loading required package: nlme
+
+Attaching package: 
+
+The following object is masked from 
+
+    collapse
+
+This is mgcv 1.8-33. For overview type 'help("mgcv-package")'.
+
+Attaching package: 
+
+The following objects are masked from 
+
+    dmvn, rmvn
+
+The following object is masked from 
+
+    %.%
+
+
+Attaching package: 
+
+The following object is masked from 
+
+    multinom
+
+
+Attaching package: 
+
+The following object is masked from 
+
+    aml
+
+
+Attaching package: 
+
+The following objects are masked from 
+
+    expand, pack, unpack
+
+$boot
+ [1] "boot"      "mvnfast"   "parallel"  "lmtest"    "zoo"       "MASS"     
+ [7] "pryr"      "forcats"   "stringr"   "dplyr"     "purrr"     "readr"    
+[13] "tidyr"     "tibble"    "ggplot2"   "tidyverse" "stats"     "graphics" 
+[19] "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+$class
+ [1] "class"     "boot"      "mvnfast"   "parallel"  "lmtest"    "zoo"      
+ [7] "MASS"      "pryr"      "forcats"   "stringr"   "dplyr"     "purrr"    
+[13] "readr"     "tidyr"     "tibble"    "ggplot2"   "tidyverse" "stats"    
+[19] "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+$KernSmooth
+ [1] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+ [6] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[11] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[16] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[21] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$lattice
+ [1] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+ [6] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[11] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[16] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[21] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[26] "base"      
+
+$MASS
+ [1] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+ [6] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[11] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[16] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[21] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[26] "base"      
+
+$mgcv
+ [1] "mgcv"       "nlme"       "lattice"    "KernSmooth" "class"     
+ [6] "boot"       "mvnfast"    "parallel"   "lmtest"     "zoo"       
+[11] "MASS"       "pryr"       "forcats"    "stringr"    "dplyr"     
+[16] "purrr"      "readr"      "tidyr"      "tibble"     "ggplot2"   
+[21] "tidyverse"  "stats"      "graphics"   "grDevices"  "utils"     
+[26] "datasets"   "methods"    "base"      
+
+$nlme
+ [1] "mgcv"       "nlme"       "lattice"    "KernSmooth" "class"     
+ [6] "boot"       "mvnfast"    "parallel"   "lmtest"     "zoo"       
+[11] "MASS"       "pryr"       "forcats"    "stringr"    "dplyr"     
+[16] "purrr"      "readr"      "tidyr"      "tibble"     "ggplot2"   
+[21] "tidyverse"  "stats"      "graphics"   "grDevices"  "utils"     
+[26] "datasets"   "methods"    "base"      
+
+$nnet
+ [1] "nnet"       "mgcv"       "nlme"       "lattice"    "KernSmooth"
+ [6] "class"      "boot"       "mvnfast"    "parallel"   "lmtest"    
+[11] "zoo"        "MASS"       "pryr"       "forcats"    "stringr"   
+[16] "dplyr"      "purrr"      "readr"      "tidyr"      "tibble"    
+[21] "ggplot2"    "tidyverse"  "stats"      "graphics"   "grDevices" 
+[26] "utils"      "datasets"   "methods"    "base"      
+
+$spatial
+ [1] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+ [6] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[11] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[16] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[21] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[26] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$survival
+ [1] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+ [6] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[11] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[16] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[21] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[26] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[31] "base"      
+
+$base
+ [1] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+ [6] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[11] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[16] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[21] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[26] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[31] "base"      
+
+$boot
+ [1] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+ [6] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[11] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[16] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[21] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[26] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[31] "base"      
+
+$class
+ [1] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+ [6] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[11] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[16] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[21] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[26] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[31] "base"      
+
+$cluster
+ [1] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+ [6] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[11] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[16] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[21] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[26] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[31] "methods"    "base"      
+
+$codetools
+ [1] "codetools"  "cluster"    "survival"   "spatial"    "nnet"      
+ [6] "mgcv"       "nlme"       "lattice"    "KernSmooth" "class"     
+[11] "boot"       "mvnfast"    "parallel"   "lmtest"     "zoo"       
+[16] "MASS"       "pryr"       "forcats"    "stringr"    "dplyr"     
+[21] "purrr"      "readr"      "tidyr"      "tibble"     "ggplot2"   
+[26] "tidyverse"  "stats"      "graphics"   "grDevices"  "utils"     
+[31] "datasets"   "methods"    "base"      
+
+$compiler
+ [1] "compiler"   "codetools"  "cluster"    "survival"   "spatial"   
+ [6] "nnet"       "mgcv"       "nlme"       "lattice"    "KernSmooth"
+[11] "class"      "boot"       "mvnfast"    "parallel"   "lmtest"    
+[16] "zoo"        "MASS"       "pryr"       "forcats"    "stringr"   
+[21] "dplyr"      "purrr"      "readr"      "tidyr"      "tibble"    
+[26] "ggplot2"    "tidyverse"  "stats"      "graphics"   "grDevices" 
+[31] "utils"      "datasets"   "methods"    "base"      
+
+$datasets
+ [1] "compiler"   "codetools"  "cluster"    "survival"   "spatial"   
+ [6] "nnet"       "mgcv"       "nlme"       "lattice"    "KernSmooth"
+[11] "class"      "boot"       "mvnfast"    "parallel"   "lmtest"    
+[16] "zoo"        "MASS"       "pryr"       "forcats"    "stringr"   
+[21] "dplyr"      "purrr"      "readr"      "tidyr"      "tibble"    
+[26] "ggplot2"    "tidyverse"  "stats"      "graphics"   "grDevices" 
+[31] "utils"      "datasets"   "methods"    "base"      
+
+$foreign
+ [1] "foreign"    "compiler"   "codetools"  "cluster"    "survival"  
+ [6] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+[11] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[16] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[21] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[26] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[31] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$graphics
+ [1] "foreign"    "compiler"   "codetools"  "cluster"    "survival"  
+ [6] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+[11] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[16] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[21] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[26] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[31] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$grDevices
+ [1] "foreign"    "compiler"   "codetools"  "cluster"    "survival"  
+ [6] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+[11] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[16] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[21] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[26] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[31] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$grid
+ [1] "grid"       "foreign"    "compiler"   "codetools"  "cluster"   
+ [6] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+[11] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[16] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[21] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[26] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[31] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[36] "base"      
+
+$KernSmooth
+ [1] "grid"       "foreign"    "compiler"   "codetools"  "cluster"   
+ [6] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+[11] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[16] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[21] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[26] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[31] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[36] "base"      
+
+$lattice
+ [1] "grid"       "foreign"    "compiler"   "codetools"  "cluster"   
+ [6] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+[11] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[16] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[21] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[26] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[31] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[36] "base"      
+
+$MASS
+ [1] "grid"       "foreign"    "compiler"   "codetools"  "cluster"   
+ [6] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+[11] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[16] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[21] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[26] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[31] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[36] "base"      
+
+$Matrix
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$methods
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$mgcv
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$nlme
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$nnet
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$parallel
+ [1] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+ [6] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[11] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[16] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[21] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[26] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[31] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[36] "methods"    "base"      
+
+$rpart
+ [1] "rpart"      "Matrix"     "grid"       "foreign"    "compiler"  
+ [6] "codetools"  "cluster"    "survival"   "spatial"    "nnet"      
+[11] "mgcv"       "nlme"       "lattice"    "KernSmooth" "class"     
+[16] "boot"       "mvnfast"    "parallel"   "lmtest"     "zoo"       
+[21] "MASS"       "pryr"       "forcats"    "stringr"    "dplyr"     
+[26] "purrr"      "readr"      "tidyr"      "tibble"     "ggplot2"   
+[31] "tidyverse"  "stats"      "graphics"   "grDevices"  "utils"     
+[36] "datasets"   "methods"    "base"      
+
+$spatial
+ [1] "rpart"      "Matrix"     "grid"       "foreign"    "compiler"  
+ [6] "codetools"  "cluster"    "survival"   "spatial"    "nnet"      
+[11] "mgcv"       "nlme"       "lattice"    "KernSmooth" "class"     
+[16] "boot"       "mvnfast"    "parallel"   "lmtest"     "zoo"       
+[21] "MASS"       "pryr"       "forcats"    "stringr"    "dplyr"     
+[26] "purrr"      "readr"      "tidyr"      "tibble"     "ggplot2"   
+[31] "tidyverse"  "stats"      "graphics"   "grDevices"  "utils"     
+[36] "datasets"   "methods"    "base"      
+
+$splines
+ [1] "splines"    "rpart"      "Matrix"     "grid"       "foreign"   
+ [6] "compiler"   "codetools"  "cluster"    "survival"   "spatial"   
+[11] "nnet"       "mgcv"       "nlme"       "lattice"    "KernSmooth"
+[16] "class"      "boot"       "mvnfast"    "parallel"   "lmtest"    
+[21] "zoo"        "MASS"       "pryr"       "forcats"    "stringr"   
+[26] "dplyr"      "purrr"      "readr"      "tidyr"      "tibble"    
+[31] "ggplot2"    "tidyverse"  "stats"      "graphics"   "grDevices" 
+[36] "utils"      "datasets"   "methods"    "base"      
+
+$stats
+ [1] "splines"    "rpart"      "Matrix"     "grid"       "foreign"   
+ [6] "compiler"   "codetools"  "cluster"    "survival"   "spatial"   
+[11] "nnet"       "mgcv"       "nlme"       "lattice"    "KernSmooth"
+[16] "class"      "boot"       "mvnfast"    "parallel"   "lmtest"    
+[21] "zoo"        "MASS"       "pryr"       "forcats"    "stringr"   
+[26] "dplyr"      "purrr"      "readr"      "tidyr"      "tibble"    
+[31] "ggplot2"    "tidyverse"  "stats"      "graphics"   "grDevices" 
+[36] "utils"      "datasets"   "methods"    "base"      
+
+$stats4
+ [1] "stats4"     "splines"    "rpart"      "Matrix"     "grid"      
+ [6] "foreign"    "compiler"   "codetools"  "cluster"    "survival"  
+[11] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+[16] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[21] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[26] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[31] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[36] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$survival
+ [1] "stats4"     "splines"    "rpart"      "Matrix"     "grid"      
+ [6] "foreign"    "compiler"   "codetools"  "cluster"    "survival"  
+[11] "spatial"    "nnet"       "mgcv"       "nlme"       "lattice"   
+[16] "KernSmooth" "class"      "boot"       "mvnfast"    "parallel"  
+[21] "lmtest"     "zoo"        "MASS"       "pryr"       "forcats"   
+[26] "stringr"    "dplyr"      "purrr"      "readr"      "tidyr"     
+[31] "tibble"     "ggplot2"    "tidyverse"  "stats"      "graphics"  
+[36] "grDevices"  "utils"      "datasets"   "methods"    "base"      
+
+$tcltk
+ [1] "tcltk"      "stats4"     "splines"    "rpart"      "Matrix"    
+ [6] "grid"       "foreign"    "compiler"   "codetools"  "cluster"   
+[11] "survival"   "spatial"    "nnet"       "mgcv"       "nlme"      
+[16] "lattice"    "KernSmooth" "class"      "boot"       "mvnfast"   
+[21] "parallel"   "lmtest"     "zoo"        "MASS"       "pryr"      
+[26] "forcats"    "stringr"    "dplyr"      "purrr"      "readr"     
+[31] "tidyr"      "tibble"     "ggplot2"    "tidyverse"  "stats"     
+[36] "graphics"   "grDevices"  "utils"      "datasets"   "methods"   
+[41] "base"      
+
+$tools
+ [1] "tools"      "tcltk"      "stats4"     "splines"    "rpart"     
+ [6] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+[11] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[16] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[21] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[26] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[31] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[36] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[41] "methods"    "base"      
+
+$utils
+ [1] "tools"      "tcltk"      "stats4"     "splines"    "rpart"     
+ [6] "Matrix"     "grid"       "foreign"    "compiler"   "codetools" 
+[11] "cluster"    "survival"   "spatial"    "nnet"       "mgcv"      
+[16] "nlme"       "lattice"    "KernSmooth" "class"      "boot"      
+[21] "mvnfast"    "parallel"   "lmtest"     "zoo"        "MASS"      
+[26] "pryr"       "forcats"    "stringr"    "dplyr"      "purrr"     
+[31] "readr"      "tidyr"      "tibble"     "ggplot2"    "tidyverse" 
+[36] "stats"      "graphics"   "grDevices"  "utils"      "datasets"  
+[41] "methods"    "base"      
+
+Warning messages:
+1: package 
+2: package 
+3: package 
+4: package 
+5: package 
+6: package 
+7: package 
+8: package 
+9: package 
+> 
+> # you may load any installed packages here
+> 
+> # sapply(c('animation', 'ggplot2'), library, character.only = TRUE)
+> 
+> 
+> 
+> cat('<?xml version="1.0" encoding="Windows-1252" ?>
++ 
++ <!--
++ 
++ @author  Yihui Xie - http://yihui.name
++ 
++ @date    2010-08-17
++ 
++ @url     http://yihui.name/en/2010/08/auto-completion-in-notepad-for-r-script/
++ 
++ -->
++ 
++ <NotepadPlus>
++ 
++    <AutoComplete language="R">
++ 
++        <Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar = "."/>
++ 
++ ', file = 'R.xml')
+> 
+> 
+> 
+> # want to restore?
+> 
+> # pkg0 <- search()
+> 
+> # env0 <- Sys.getenv()
+> 
+> # dll0 <- sapply(getLoadedDLLs(), "[[", "path")
+> 
+> 
+> 
+> # deal with special HTML/XML characters
+> 
+> htmlspecialchars <- function(string) {
++ 
++     x = c("&", '"', "<", ">")
++ 
++     subx = c("&amp;", "&quot;", "&lt;", "&gt;")
++ 
++     for (i in seq_along(x)) {
++ 
++         string = gsub(x[i], subx[i], string, fixed = TRUE)
++ 
++     }
++ 
++     string
++ 
++ }
+> 
+> 
+> 
+> strFun <- 
++ 
++ '       <KeyWord name="%s" func="yes">
++ 
++            <Overload retVal="function">
++ 
++ %s
++ 
++            </Overload>
++ 
++        </KeyWord>
++ 
++ '
+> 
+> 
+> 
+> strNoFun <- 
++ 
++ '       <KeyWord name="%s" />
++ 
++ '
+> 
+> 
+> 
+> findfuns <- function(x) {
++ 
++     message(x)
++ 
++     flush.console()
++ 
++     env <- paste("package", x, sep = ":")
++ 
++     nm <- ls(env, all.names = FALSE)
++ 
++     idx <- grep("[<>&@:\\?\\{\\(\\)\\[\\^\\*\\$!%/\\|\\+=~\\-]", 
++ 
++         nm)
++ 
++     if (length(idx)) 
++ 
++         nm <- nm[-idx]
++ 
++     idx <- grep("^(\\._|\\.\\.)", nm)
++ 
++     if (length(idx)) 
++ 
++         nm <- nm[-idx]
++ 
++     names(nm) <- nm
++ 
++     res <- lapply(nm, function(fun) {
++ 
++         obj <- get(fun, envir = as.environment(env))
++ 
++         if (mode(obj) == "function") {
++ 
++             if (is.null(formals(obj))) 
++ 
++               NULL
++ 
++             else sapply(formals(obj), function(param) {
++ 
++               ifelse(is.character(param), shQuote(param, "sh"), 
++ 
++                 gsub("\"", "'", as.character(as.expression(param))))
++ 
++             })
++ 
++         }
++ 
++         else NULL
++ 
++     })
++ 
++     res <- sapply(res, function(obj) {
++ 
++         if (is.null(obj)) 
++ 
++             NULL
++ 
++         else {
++ 
++             paste(rep(c(rep("",3), "\n               "), length.out = length(obj)), htmlspecialchars(ifelse(obj == "", names(obj), 
++ 
++               paste(names(obj), obj, sep = " = "))), sep = "")
++ 
++         }
++ 
++     })
++ 
++     # lapply(setdiff(search(), pkg0), detach, character.only = TRUE)
++ 
++     # do.call(Sys.setenv, as.list(env0))
++ 
++     # dll1 <- setdiff(sapply(getLoadedDLLs(), '[[', 'path'), dll0)
++ 
++     # Cairo-related DLLs can cause conflicts (e.g. Cairo & RGtk2), so unload them
++ 
++     # if (length(idx <- grep('Cairo', dll1))) {
++ 
++     #     lapply(dll1[idx], dyn.unload)
++ 
++     # }
++ 
++     res
++ 
++ }
+> 
+> 
+> 
+> # Important! needs to sort in the 'C' locale
+> 
+> Sys.setlocale(, "C")
+[1] "C"
+> 
+> z <- lapply(.packages(all.available = FALSE), findfuns)
+tools
+tcltk
+stats4
+splines
+rpart
+Matrix
+grid
+foreign
+compiler
+codetools
+cluster
+survival
+spatial
+nnet
+mgcv
+nlme
+lattice
+KernSmooth
+class
+boot
+mvnfast
+parallel
+lmtest
+zoo
+MASS
+pryr
+forcats
+stringr
+dplyr
+purrr
+readr
+tidyr
+tibble
+ggplot2
+tidyverse
+stats
+graphics
+grDevices
+utils
+datasets
+methods
+base
+> 
+> zz <- list()
+> 
+> for (i in 1:length(z)) zz <- c(zz, z[[i]])
+> 
+> nm <- sort(unique(names(zz)))
+> 
+> res <- list()
+> 
+> for (i in nm) res[i] <- zz[i]
+> 
+> res[["."]] <- NULL
+> 
+> nm <- names(res)
+> 
+> for (i in 1:length(res)) {
++ 
++     obj <- res[[i]]
++ 
++     cat(if (length(obj) == 0) 
++ 
++         sprintf(strNoFun, nm[i])
++ 
++     else sprintf(strFun, nm[i], paste(sprintf("               <Param name=\"%s\" />", 
++ 
++         obj), collapse = "\n")), file = "R.xml", append = TRUE)
++ 
++ } 
+> 
+> 
+> 
+> cat('   </AutoComplete>
++ 
++ </NotepadPlus>
++ 
++ ', file = 'R.xml', append = TRUE)
+> A = matrix( C(1,2,3,3,4,3,2,1,1), nrow=3, ncol=3);
+Error in C(1, 2, 3, 3, 4, 3, 2, 1, 1) : 
+  object not interpretable as a factor
+> A = matrix( c(1,2,3,3,4,3,2,1,1), nrow=3, ncol=3);
+> A;
+     [,1] [,2] [,3]
+[1,]    1    3    2
+[2,]    2    4    1
+[3,]    3    3    1
+> b = c(3,2,1);
+> b;
+[1] 3 2 1
+> x = solve(A,b);
+> x;
+[1] -0.5  0.5  1.0
+> 

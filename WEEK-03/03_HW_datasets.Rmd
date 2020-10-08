@@ -51,49 +51,15 @@ transposeMatrix = function(mat)
           }
 ```
 
-```{r, mychunk-matrix-functions}
-# clockwise
-rotateMatrix90 = function(mat)
-{ 
-  t(mat[nrow(mat):1,,drop=FALSE]);
-}
-
-rotateMatrix180 = function(mat)
-{
-  rotateMatrix90(rotateMatrix90(mat));
-}   
-
-rotateMatrix270 = function(mat)
-{
-  rotateMatrix90(rotateMatrix90(rotateMatrix90(mat)));
-}   
-
-
-# counter clockwise
-rotateMatrix90_cc = function(mat)
-{
-  apply(t(mat), 2, rev);
-}
-
-rotateMatrix180_cc = function(mat)
-{
-  rotateMatrix90_cc(rotateMatrix90_cc(mat));
-}   
-
-rotateMatrix270_cc = function(mat)
-{
-  rotateMatrix90_cc(rotateMatrix90_cc(rotateMatrix90_cc(mat)));
-}   
-
-```
-
 
 ```{r, mychunk-matrix}
-#source_url(paste0(github.path, "master/WEEK-03/functions/HW2_functions.R"));
+#my.url = paste0(github.path, "master/WEEK-03/functions/HW2_functions.R");
+#my.url;
+source_url(paste0(github.path, "master/WEEK-03/functions/HW2_functions.R"));
 # Rotate clockwise
-rotateMatrix90(myMatrix);
-rotateMatrix180(myMatrix);
-rotateMatrix270(myMatrix);
+rotateMatrix90_c(myMatrix);
+rotateMatrix180_c(myMatrix);
+rotateMatrix270_c(myMatrix);
 # Rotate counter clockwise
 rotateMatrix90_cc(myMatrix);
 rotateMatrix180_cc(myMatrix);
@@ -585,14 +551,17 @@ new.denzel$nmid = denzel$nmid;
 new.denzel$name = denzel$name;
 new.denzel$countfilms = denzel$countfilms$totalcount;
 new.denzel = new.denzel[, c(12,13,14, 1:11)];
+new.denzel$countfilms;
 ```
 
 ## Combined Dataframe of Will Smith and Denzel Washington
 ```{r, mychunk-will-denzel-df}
 df.will.denzel = rbind(new.will, new.denzel);
 ```
-
-
+This brief analysis can lead to a conclusion.
+The box plots are showing, that Will Smith has a higher variety, like a bigger spread of earnings for the movies he shot than Denzel Washington. The mean is a little higher than 50 Millions, whereas the mean of Denzel Washington is on about 50 Million.
+The observation of the number of films both actors played in gives, that Will Smith had 111 and Denzel Washington 61 movies. The result can lead to the conclusion that Will Smith is a better actor because he has been part of more movies and therefore has been asked more often to do so. 
+Based on that data you could say that Will Smith is a better actor but in reality this is a very subjective question. Every person can answer it differently.
 
 
 # Side by side comparison
@@ -609,6 +578,15 @@ str(will$movies.50);
 will$movies.50 = standardizeDollarsInDataFrame(will$movies.50, 2000, "millions", "year", "millionsAdj");
 str(will$movies.50);
 plot(will$movies.50$millions,will$movies.50$millionsAdj);
+
+# total millions earned adjusted
+total.millions.adjusted_w = will$movies.50$millionsAdj;
+will.millions.adjusted = 0;
+for (million in total.millions.adjusted_w){
+  will.millions.adjusted = will.millions.adjusted + total.millions.adjusted_w[i];
+}
+will.millions.adjusted;
+
 ```
 
 ### Denzel Washington Standardize Dollars
@@ -621,7 +599,17 @@ str(denzel$movies.50);
 denzel$movies.50 = standardizeDollarsInDataFrame(denzel$movies.50, 2000, "millions", "year", "millionsAdj");
 str(denzel$movies.50);
 plot(denzel$movies.50$millions,denzel$movies.50$millionsAdj);
+
+# total millions earned adjusted
+total.millions.adjusted_d = denzel$movies.50$millionsAdj;
+denzel.millions.adjusted = 0;
+for (million in total.millions.adjusted_d){
+  denzel.millions.adjusted = denzel.millions.adjusted + total.millions.adjusted_d[i];
+}
+denzel.millions.adjusted;
 ```
+The observation about the earned money over the years with adjusted money the result is quite clear. Will Smith is winning this close-up analysis. He earned 10646.75 million dollars so far while Denzel Washington did earn only 5404.971 million dollars.
+
 
 ## Total Votes  (Divide by 1,000,000)
 ### Votes for Will Smith
@@ -634,10 +622,9 @@ will.votes = 0;
 for (vote in total.votes.w){
   will.votes = will.votes + total.votes.w[i];
 }
-will.votes;
 will.votel.p = will.votes/1000000;
+will.votel.p
 ```
-
 
 ### Votes for Denzel Washington
 ```{r,mychunk-total-votes-will, , fig.cap= c("Denzel Washington boxplot of Votes: IMDB(2020)")}
@@ -649,9 +636,10 @@ denzel.votes = 0;
 for (vote in total.votes.d){
   denzel.votes = denzel.votes + total.votes.d[i];
 }
-denzel.votes;
 denzel.votes.p = denzel.votes/1000000;
+denzel.votes.p;
 ```
+A more customer and viewer based comparison is when looking at votes. There all votes combined are divided by 1 million to clearly see the difference: Will Smith got 33.7651 votes and Denzel Washington did get 19.20505, which shows that Will is more popular among the audience as well.
 
 
 ## Average Ratings
@@ -669,7 +657,6 @@ will.ratings;
 summary(will$movies.$ratings);
 ```
 
-
 ### Average Ratings Denzel Washington
 ```{r,mychunk-total-ratings-denzel, fig.cap= c("Denzel Washington boxplot of Ratings: IMDB(2020)")}
 boxplot(denzel$movies$ratings);
@@ -683,6 +670,7 @@ for (rating in total.ratings.d){
 denzel.ratings;
 summary(denzel$movies.$ratings);
 ```
+The result of the comparison on the average ratings is very interestin and close. Where all other categories have been won by Will Smith, this time Denzel is having a better rating average. 
 
 
 ## Who has the longest total and average Movie length in Minutes?
@@ -713,6 +701,8 @@ for (minute in total.minutes.d){
 denzel.minutes;
 summary(denzel$movies.$minutes);
 ```
+The average movie length seems to be longer in movies where Denzel Washington has been a part of. The total length of the Denzel movies is 7850 and of Will movies it is 5050 minutes. Looks like Denzel is playing in longer movies than Will does.
+
 
 ## Metacritic (NA values)
 ### Metacritic of Will Smith Movies
@@ -742,4 +732,6 @@ for (meta in total.metacritic.d){
 denzel.metacritic;
 summary(denzel$movies.$metacritic);
 ```
+This last part of the analysis looks at the metacritic. Here it looks like Denzel Washington has larger metacritics than Will Smith. 
 
+As I stated before, this question of who of this two actors is a better actor cannot be determined with statistical analysis. There can be made overall trends but it is a very subjective  answer. Everybody has a different opinion and viewpoint.

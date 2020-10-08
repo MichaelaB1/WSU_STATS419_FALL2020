@@ -8,19 +8,19 @@ transposeMatrix = function(mat)
 }
 
 # clockwise
-rotateMatrix90 = function(mat)
+rotateMatrix90_c = function(mat)
 {
   t(mat[nrow(mat):1,,drop=FALSE]);
 }
 
-rotateMatrix180 = function(mat)
+rotateMatrix180_c = function(mat)
 {
-  rotateMatrix90(rotateMatrix90(mat));
+  rotateMatrix90_c(rotateMatrix90_c(mat));
 }   
 
-rotateMatrix270 = function(mat)
+rotateMatrix270_c = function(mat)
 {
-  rotateMatrix90(rotateMatrix90(rotateMatrix90(mat)));
+  rotateMatrix90_c(rotateMatrix90_c(rotateMatrix90_c(mat)));
 }   
 
 
@@ -130,63 +130,62 @@ whichMaxFreq = function(x)  # doMode
 
 
 
-'''
-doSampleVariance = function(x, method)
-{
-  if( method=="naive")
-  {
-    sum((x-mean(x))^2)/(length(x)-1);
-  }
-  else
-  {
-    # two-pass algorithm
-    n = sum1 = sum2 = 0;
-    for (i in 1:x)
-    {
-      n += 1;
-      sum1 += x;
-    }
-    m = sum1/n
-    
-    for (i in 1:x)
-    {
-      sum2 += (x-m)*(x-m);
-    }
-    variance = sum2/(n-1);
-    return variance;
-  }
-  
-}
+# doSampleVariance = function(x, method)
+# {
+#   if( method=="naive")
+#   {
+#     sum((x-mean(x))^2)/(length(x)-1);
+#   }
+#   else
+#   {
+#     # two-pass algorithm
+#     n = sum1 = sum2 = 0;
+#     for (i in 1:x)
+#     {
+#       n += 1;
+#       sum1 += x;
+#     }
+#     m = sum1/n
+#     
+#     for (i in 1:x)
+#     {
+#       sum2 += (x-m)*(x-m);
+#     }
+#     variance = sum2/(n-1);
+#     return variance;
+#   }
+#   
+# }
+# 
+# 
+# 
+# doMode = function(x)
+# {
+#   result = c();
+#   # freq... #high frequencies
+#   # ties... store all of ties
+#   score = 0;
+#   # find highest score
+#   for (i in 1:x)
+#   {
+#     if (score < x[i])
+#     {
+#       score = x[i];
+#     }
+#   }
+#   # go through x again to get all ties and store them
+#   for (i in 1:x)
+#   {
+#     if (score == x[i])
+#     {
+#       result = c(result,x[i]);
+#     }
+#   }
+#   
+#   result;	  
+# }
 
 
-
-doMode = function(x)
-{
-  result = c();
-  # freq... #high frequencies
-  # ties... store all of ties
-  score = 0;
-  # find highest score
-  for (i in 1:x)
-  {
-    if (score < x[i])
-    {
-      score = x[i];
-    }
-  }
-  # go through x again to get all ties and store them
-  for (i in 1:x)
-  {
-    if (score == x[i])
-    {
-      result = c(result,x[i]);
-    }
-  }
-  
-  result;	  
-}
-
-'''
 
 
 

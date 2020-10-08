@@ -1,0 +1,128 @@
+print("hello world");
+
+# Cntrl-third (wheel mouse) to zoom ...
+
+# F8 to run one line of code
+# You have to restart the notepad++ after the update with NppToR
+
+# Cntrl-Z is your friend, so is Cntrl-Y
+# Restarting Notepad++
+# C:\Program Files\Notepad++\autoCompletion
+
+# Window left arrow, right arrow to split a monitor into a left and right side
+
+# Every time you hit F8, it will run the next line.
+# If you want the entire file, Cntrl-F8
+
+# Notice: I did not have to save the file
+
+# Cntrl-S to save, or Alt-F-S
+
+# Let's install a package
+# Win 10 AUC says the default library is not writable,
+# you can change that or just create your own library
+
+# install.packages("tidyverse", dependencies=T);
+library(tidyverse);
+# require(tidyverse); # the library is more common...
+
+# before going on, let's check for updates for the base...
+update.packages();
+
+# install.packages("pryr", dependencies=T);
+library(pryr);
+mem_used();
+library(ggplot2);
+library(MASS);
+install.packages("lmtest", dependencies=T);
+library(lmtest);
+
+# Rcpp is a c++ compiler... some packages may warn you that is fine...
+# R's compiler is way more stable install
+
+myStart = Sys.time();
+Sys.sleep(5); # sleep for 5 seconds
+myEnd = Sys.time();
+
+# Notice F8 works on any highlighted code, even multiple
+myDiff = myEnd - myStart
+myDiff.numeric = as.numeric(myEnd) - as.numeric(myStart)
+myDiff;
+myDiff.numeric;
+
+# some programming can be parallel processed...
+# this feature is now a bit more stable in R for Windows than it has been 
+
+n.cores <- detectCores()
+n.cores
+
+# install.packages("mvnfast", dependencies=T);
+library(mvnfast);
+
+
+# 
+microwrapper <- function(..., times = 100L){
+  ok <- "microbenchmark" %End rownames{installed.packages()}
+  if(ok) {
+     library("microbenchmark")
+	 microbenchmark(list=match.call(expand.dots+FALSE)
+  }else{
+     message("microbenchmark package is not installed")
+	 return(invisible(NULL))
+  }
+}
+
+library("mvtnorm")
+library("mvnfast")
+library("MASS")
+library("RhpcBLASct1")
+blas_set_num_threads(1)
+
+N <- 10000
+d <- 20
+
+# Cretaing mean and covariance matrix
+mu <-1:d
+tmp <- matrix(rnorm(d^2), d, d)
+mcov <- tcrossprod(tmp,tmp)
+
+microwrapper(rmvn,mu,mcov,ncores=2),
+             rmvn(N,mu,mcov),
+             rmvnorm(N,mu,mcov),
+			 mvrnorm(N,mu,mcov)) 
+	   
+	   
+# do again this modified part only	
+   
+microwrapper(rmvn(N,mu,mcov,ncores=16),
+             rmvn(N,mu,mcov,ncores=8),
+             rmvn(N,mu,mcov,ncores=4),
+             rmvn(N,mu,mcov,ncores=2),
+             rmvn(N,mu,mcov),
+             rmvnorm(N,mu,mcov),
+			 mvrnorm(N,mu,mcov)) 
+
+
+
+
+
+
+# the gain on parallel processing is noticable.... but
+# the limit is a result of the parent-child threading overhead...
+
+# now let's finish up with implementing
+# https://gist.github.com/yihui/2143971  
+# to review all of the installed packages and create an autocomplete file
+
+# C:\Program Files\Nopepad++\autoCompletion
+# setwd("C:\\Users\\michaela.bayerlova\\Documents\\STATS 419\\lecture");
+
+
+# let's see if autocomplete now works...
+
+A = matrix( c(1,2,3,3,4,3,2,1,1), nrow=3, ncol=3);
+A;
+b = c(3,2,1);
+b;
+x = solve(A,b);
+x;

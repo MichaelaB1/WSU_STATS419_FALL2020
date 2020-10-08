@@ -1,0 +1,79 @@
+print("hello friend");
+
+# FLIPPING A COIN
+# Pr(H) = 1/2;
+h1 = 0.5;
+t1 = 0.5;
+
+# OR means add, AND means multiply
+cor = h1 + t1;
+cor;
+
+# getting Heads 2 times in a row
+cand = h1 * h1;
+cand;
+
+# permutations and combinations...
+# order is important
+
+# CRAPS: 2 dice, each 1-6
+die1 = c(1,2,3,4,5,6);
+die2 = seq(1,6,by=1);
+freq = numeric(12);
+
+for (d1 in die1)
+   {   
+    print( paste("D1", die1) );
+	for (d2 in die2)
+	   {
+	    print( paste("D2", die2) );
+		score = d1 + d2;
+		print( paste("SCORE", score));
+		freq[score] = freq[score] + 1;
+		}
+	}
+freq;
+sum(freq);
+pfreq = freq/sum(freq);
+pfreq;
+
+table = cbind( seq(1,12,by=1), freq, pfreq);
+
+# random generation...
+sample(1:6, 1);
+sample(1:6, 1) + sample(1:6, 1); #score of the game, 2 dice
+
+# simulation of 1000 dice rolls
+nfreq = numeric(12);
+nsim = 1000;
+for (i in 1:nsim)
+   {   
+   score = sample(1:6, 1) + sample(1:6, 1);
+   nfreq[score] = nfreq[score] + 1;
+   }
+nfreq;
+table = cbind(table, nfreq/sum(nfreq));
+
+# set a seed (MAYBE FOR TURNING IN AN ASSIGNMENT) 
+set.seed(1234); sample(1:6, 1);
+# -> find a seed that allows 52/100 heads
+set.seeds(123); rbinom(1, 100, 0.5);
+## wrap this in a for loop, change the seed until you get 52 exactly...
+# and what is that seed ... +5 ... EASTER EGG if first one to post
+
+
+# pdf or cdf ... probability ... distribution
+# Pr(1) = 0; Pr(2) = 1/36, Pr(3) = 2/36, ...
+
+nfreq.cdf = ecdf(nfreq);
+plot(nfreq.cdf)
+
+x = cbind(
+          runif(1000, 0, 1),
+		  rnorm(1000, 0, 1),
+		  rbinom(1000, 0, 0.5));
+head(x)
+plot(as.data.frame(x));
+
+   
+
