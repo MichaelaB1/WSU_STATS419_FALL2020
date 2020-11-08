@@ -36,7 +36,7 @@ This resource (channel) <https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLb
 * **Flipping Coins / Measuring Person's Heights** <https://www.youtube.com/watch?v=5Z9OIYA8He8>
 
 * **eigenvectors** <https://www.youtube.com/watch?v=PFDu9oVAE-g>
-
+            
 
 
 # K-means
@@ -122,8 +122,7 @@ stars(X.kmeans$centers, len = 0.5, key.loc = c(4, 3),
 print(X.kmeans);
 
     membership = as.data.frame( matrix( X.kmeans$cluster, ncol=1)) ;
-    
-    rownames(membership) = protein$Country;
+        rownames(membership) = protein$Country;
 
     membership;
 
@@ -420,6 +419,17 @@ print(X.kmeans);
 fviz_cluster(X.kmeans,data=X);
 
 # will this be replicable? ...
+
+
+library(devtools);
+source_url("https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-EDA.R");
+
+Xs = scale(X);
+X.kmeans.info = perform.kmeans(Xs, 4);
+str(X.kmeans.info);
+
+factoextra::fviz_cluster(X.kmeans.info$kmeans, data=Xs);
+
 
 ```
 # Synthesis (**S.T.A.R.S**)

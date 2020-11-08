@@ -60,7 +60,7 @@ library(humanVerseWSU);
 
 personality.raw = readRDS( system.file("extdata", "personality-raw.rds", package="humanVerseWSU") );
 
-cleanupPersonalityDataFrame = function(df)
+cleanupPersonalityDataFrame = function(personality.raw)
   {
   df = removeColumnsFromDataFrame(personality.raw, "V00");
   dim(df);  # 838
@@ -192,6 +192,11 @@ if(Xs.bartlett$p.value < alpha)
           print("To put this in layman's terms, the  variables in our dataset are fairly uncorrelated so a data reduction technique like PCA or factor analysis would have a hard time compressing these variables into linear combinations that are able to capture significant variance present in the data. <https://www.statology.org/bartletts-test-of-sphericity/>");
           }
 
+# will be available in humanVerseWSU ... 0.1.4.1 (coming soon) ... 
+# performBartlettSphericityTest(Xs);
+# performBartlettSphericityTest(Xs.corr, n = nrow(Xs));
+# myMeasure ... 
+
 ```
 
 
@@ -259,7 +264,10 @@ nResults = nScree(eig = Xs.corr.eigen$values,
 plotnScree(nResults, main="Component Retention Analysis");
 # This is suggesting "6" based on Parallel Analysis and Optimal Coordinates ...
 
+str(nResults);
 
+
+# howManyFactorsToSelect(Xs);
 ```
 
 
@@ -353,14 +361,14 @@ rs = numeric(ncol(Xs));
 # http://www.sthda.com/english/wiki/a-complete-guide-to-3d-visualization-device-system-in-r-r-software-and-data-visualization#basic-graph
 
 print("Uncomment here to get more 3D in dynamic interactive form [WILL NOT KNIT]");
-### uncomment, it will not KNIT
+## uncomment, it will not KNIT
 # rgl.open(); ## Open a new RGL device
 # rgl.bg(color = "white");
-# rgl.spheres(Xs.factanal.5$loadings[,1:3], 
-#             r = rs, 
+# rgl.spheres(Xs.factanal.5$loadings[,1:3],
+#             r = rs,
 #             color = colors
-#             ); 
-### right click on a sphere
+#             );
+# ## right click on a sphere
 # identify3d(Xs.factanal.5$loadings[,1:3], labels = names(Xs), n = 5);
 
 
@@ -428,7 +436,7 @@ Below is some example links.  The `email` and `p-code` would change for your rep
 
 * Full Report (as-if you paid): <http://mpt.mshaffer.com/report/mshaffer@mshaffer.com/p-5f7d9a7fedd5f/?has-paid=true>
 
-As you can see from the above, I just took the test and spent less than 4 minutes on it.  So the accuracy is probably not perfect, but it is somewhat accurate.  
+As you can see from the above, I just took the test and spent less than 4 minutes on it.  So the accuracy is probably not perfect, but it is somewhat accurate. I would suggest you take the test when you are in a "reflective mood" and devote at least 15 minutes to it. 
 
 I would say my natural self is a D-4 or D-6.  This is a version of an older report from 2018 <http://www.mshaffer.com/arizona/Monte_Shaffer__RleeFtjanggAAOn6m00.pdf>, that was true at the time (I was working with a lot of young CS interns/hires working on an ECE project <https://nsf.gov/awardsearch/showAward?AWD_ID=1819997> to develop technologies to automate exercise routines for persons with Parkinson's Disease).
 
@@ -444,6 +452,16 @@ Xs.self = Xs[,1:30];
 
 Xs.self;
 
+
+library(devtools);
+source_url("https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-EDA.R");
+Xs.self.how.many = howManyFactorsToSelect(Xs.self);
+Xs.self.EFA.factanal = perform.EFA(Xs.self, 6, which="factanal",
+                              rotation="varimax", scores = "regression");
+
+Xs.self.EFA.fa       = perform.EFA(Xs.self, 6, which="fa",
+                              rotation="oblimin", scores = "regression", fa.fm="ml");
+
 ```
 
 ## Other: (31-60)
@@ -454,6 +472,15 @@ Xs.self;
 Xs.other = Xs[,31:60];
 
 Xs.other;
+
+library(devtools);
+source_url("https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-EDA.R");
+Xs.other.how.many = howManyFactorsToSelect(Xs.other);
+Xs.other.EFA.factanal = perform.EFA(Xs.other, 6, which="factanal",
+                              rotation="varimax", scores = "regression");
+
+Xs.other.EFA.fa       = perform.EFA(Xs.other, 6, which="fa",
+                              rotation="oblimin", scores = "regression", fa.fm="ml");
 
 ```
 

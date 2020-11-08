@@ -460,6 +460,7 @@ measure.instructor = read.csv("http://md5.mshaffer.com/WSU_STATS419/measure-0434
 getOne = c("hand.length", "hand.width", "hand.elbow", "elbow.armpit", "arm.reach", "foot.length", "floor.kneepit", "floor.hip", "floor.armpit");
 n.rows = dim(measure.instructor)[1];
 
+measure.instructor;
 
 for(one in getOne)
   {
@@ -495,7 +496,7 @@ for(i in 1:n.rows)
 
 str(measure.instructor); # lot's of columns ...
 
-
+measure.instructor;
 
 ```
 

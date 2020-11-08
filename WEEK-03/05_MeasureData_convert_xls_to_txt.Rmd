@@ -35,8 +35,8 @@ panel.first = panel$`person_id`[1];  # 1c2408654ef5a2fe1fc962088312266c
 
 temp = panel[panel$`person_id` == panel.first , ];
 
-mySide = (panel$side);
-myKeys = (panel$mkey);
+mySide = (panel$`side`);
+myKeys = (panel$`mkey`);
 
 myJointKeys =  unique( paste0(myKeys,"-",mySide) );
 
@@ -78,14 +78,14 @@ for(i in 1:n.cov)
   colnames(final.row) = tabularized.cols;
   
   final.row$`data_collector` = collector = covariates.row$`data_collector`;
-  final.row$`person id` = person = covariates.row$`person id`;
+  final.row$`person_id` = person = covariates.row$`person_id`;
   final.row[27:37] = covariates.row[3:13]; 
 
-collector = as.data.frame(panel$`data collector`);
-person = as.data.frame(panel$`person id`);
-   subpanel = panel[collector & person, ];
-   
-  #subpanel = panel[panel$`data collector` == collector & panel$`person id` == person, ];
+#collector = as.data.frame(panel$`data_collector`);
+#person = as.data.frame(panel$`person_id`);
+  #subpanel = panel[collector & person, ];
+  
+   subpanel = panel[panel$`data_collector` == collector & panel$`person_id` == person, ];
   n.sub = dim(subpanel)[1];
   for(j in 1:n.sub)
     {

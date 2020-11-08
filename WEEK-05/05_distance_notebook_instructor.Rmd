@@ -128,6 +128,7 @@ distm( chicago[,2:1], fun=distGeo);  # form is "long,lat" so reverse
 library(measurements); # install.packages("measurements", dependencies=TRUE);
 conv_unit(2.54, "cm", "inch");
 
+
 conv_unit(  distm( chicago[,2:1], fun=distHaversine),  "m", "mi"); # meters to miles
 conv_unit(  distm( chicago[,2:1], fun=distMeeus),  "m", "mi"); # meters to miles
 conv_unit(  distm( chicago[,2:1], fun=distGeo),  "m", "mi"); # meters to miles

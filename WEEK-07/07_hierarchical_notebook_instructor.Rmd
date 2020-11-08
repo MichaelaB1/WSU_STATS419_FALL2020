@@ -69,11 +69,12 @@ write.table( protein , file=protein.file2, quote=FALSE, col.names=TRUE, row.name
 protein = read.csv(protein.file2, header=TRUE, quote="", sep="|");
 protein;
 
+# needs to be a matrix of numbers only
+X = removeColumnsFromDataFrame(protein,"Country");
 
-round( dist( removeColumnsFromDataFrame(protein,"Country") ), digits=2);
+round( dist( X ), digits=2);
 
-
-round( cor( removeColumnsFromDataFrame(protein,"Country") ), digits=2);
+round( cor( X ), digits=2);
 
 
 ```
@@ -143,11 +144,12 @@ library(pvclust);  # install.packages("pvclust", dependencies=TRUE);
 # nboot=1000 ... is it 1000 times slower?
 # r = seq(0.5,1.4,by=.1); # what proportion of the data should be used in the bootstrap
 
-
+## pvclust has a cores option to speed this up ... parallel = TURE
 for(method in methods)
   {
   time.start = Sys.time();  
-      X.pvclust = pvclust ( protein.t, method.hclust=method);
+      # parallel=FALSE/TRUE ... try each on a run ... TRUE was about 8x faster for me ...
+      X.pvclust = pvclust ( protein.t, method.hclust=method, parallel=FALSE);  
   plot(X.pvclust);
       pvrect(X.pvclust);
   time.end = Sys.time();
@@ -194,6 +196,8 @@ Maybe do some `sandbox play` with your toy dataset.  We will get you the larger 
 
 ```{r, chunck-load-cars}
 
+# https://www.webpages.uidaho.edu/~stevel/519/Data/MBA_CAR.txt
+
 car.file = paste0(example.datasets.path,"MBA_CAR_ATTRIB.txt");
 
 mba.cars = na.omit(read.table(car.file,na.strings='.'));
@@ -205,16 +209,38 @@ myAttributes = c("Exciting", "Dependable", "Luxurious",
                   "Versatile", "Sports", "Status",
                   "Practical");
 
-car.ids = mba.cars$V1;
+
+myCars = c("BMW 328i","Ford Explorer","Infiniti J30","Jeep Grand Cherokee","Lexus ES300","Chrysler Town & Country", "Mercedes 280", "Saab 9000", "Porsche Boxter", "Volvo V90");
+
+
+car.ids = mba.cars$V2;
+mba.cars$V2 = factor(car.ids, labels=myCars);
+
+rownames(mba.cars) = mba.cars$V1;
+colnames(mba.cars) = c("ids","car",myAttributes);
+
+cars.df = removeColumnsFromDataFrame(mba.cars, "ids");
 
 cars = mba.cars[,3:18];
 
 colnames(cars) = myAttributes;
-rownames(cars) = car.ids;
+#rownames(cars) = car.ids;
 
 head(cars);
 
 # should we scale the data ... ?
+
+X = transposeMatrix( cars );  
+Xs = scale(X);
+
+# it gets very slow if you don't organize correctly ...
+# hclust struggles with large datasets ...
+
+library(devtools);
+source_url("https://raw.githubusercontent.com/MonteShaffer/humanVerseWSU/master/humanVerseWSU/R/functions-EDA.R");
+
+X.hclust.info = perform.hclust(Xs, 8);
+str(X.hclust.info);
 
 ```
 Use `hclust` and `pvclust` to aggregate `myAttributes`
