@@ -295,7 +295,7 @@ dataframeGroup = function(measure.proportions)
 prepareProportionsAnalysis = function(measure.clean)
 {
   # Remove wrong data
-  measure.clean = removeWrongData(measure.clean);
+  #measure.clean = removeWrongData(measure.clean);
   
   # Create subset with data variables
   measure.subset = createSubset(measure.clean);
@@ -357,7 +357,7 @@ heroicPeople = function(measure.proportions)
   
   # new data frame
   measure.proportions.h <- measure.proportions[9];
-  measure.proportions.h <- na.omit(measure.proportions.new2);
+  measure.proportions.h <- na.omit(measure.proportions.h);
   measure.proportions.h;
   
   
