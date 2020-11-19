@@ -166,7 +166,7 @@ prepareMeasureData = function(file.measure)
   measure.clean = measure.clean[,-(9:10), drop=FALSE];
   
   # re-arrange columns
-  measure.clean = measure.clean[,c(1,2,3,4,5,6,20,21,22,23,24,7,25,26,27,8,28,9,10,11,12,13,14,15,16,17,18,19)];
+  measure.clean = measure.clean[,c(1,2,3,4,5,6,20,21,22,23,7,24,25,26,27,8,28,9,10,11,12,13,14,15,16,17,18,19)];
   measure.clean;
   
   # remove notes column
@@ -215,6 +215,19 @@ createSubset = function(measure.clean)
   measure.subset = measure.subset[,-(6:8), drop=FALSE];
   measure.subset;
 }
+
+## create subset with data variables
+createSubsetInstructor = function(measure.clean)
+{
+  measure.subset <- as.data.frame(measure.clean);
+  measure.subset = measure.subset[,-(1:2), drop=FALSE];
+  measure.subset = measure.subset[,-(3), drop=FALSE];
+  measure.subset = measure.subset[,-(4:6), drop=FALSE];
+  measure.subset = measure.subset[,-(4:6), drop=FALSE];
+  measure.subset = measure.subset[,-(6:17), drop=FALSE];
+  measure.subset;
+}
+
 
 
 ## Create new data frame 'measure.proportions' to work on analysis
@@ -313,6 +326,28 @@ prepareProportionsAnalysis = function(measure.clean)
 }
 
 
+## Prepare for analysis of proportions
+prepareProportionsAnalysisInstructor = function(measure.clean)
+{
+  # Remove wrong data
+  #measure.clean = removeWrongData(measure.clean);
+  
+  # Create subset with data variables
+  measure.subset = createSubsetInstructor(measure.clean);
+  
+  # Create new data frame 'measure.proportions' to work on analysis
+  measure.proportions = measureProportionsData(measure.subset);
+  
+  # Create group based on proportions of head.height vs height
+  measure.proportions = proportionsGroup(measure.proportions);
+  
+  # Create group based on age
+  measure.proportions = ageGroup(measure.proportions);
+  
+  measure.proportions;
+}
+
+
 
 
 
@@ -383,7 +418,7 @@ heroicPeople = function(measure.proportions)
 percentageOfHeroicPeopleBeingMale = function(measure.proportions)
 {
   # new data frame
-  measure.proportions.new2 <- measure.proportions[c(5,9)];
+  measure.proportions.new2 <- measure.proportions[,c(5,9)];
   measure.proportions.new2 <- na.omit(measure.proportions.new2);
   measure.proportions.new2;
   
