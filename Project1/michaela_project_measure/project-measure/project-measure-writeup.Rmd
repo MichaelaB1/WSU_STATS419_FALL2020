@@ -421,10 +421,13 @@ Below is the code for the summary statistics of male and female head height vs h
 
 ```{r,appendix-male-vs-female-proportions,message=FALSE}
 # Summary statistics of male and female proportions
-meanGenderProportions(measure.proportions);
+meanMaleProportions(measure.proportions);
+meanFemaleProportions(measure.proportions);
+
 
 # same step for instructors data
-meanGenderProportions(measure.proportions2);
+meanMaleProportions(measure.proportions2);
+meanFemaleProportions(measure.proportions2);
 
 ```
 

@@ -278,7 +278,7 @@ meanFemaleProportions = function(measure.proportions)
   measure.proportions.female <- as.data.frame((measure.proportions));
   
   comparison2 = measure.proportions.female$gender == 'female';
-  comparison[is.na(comparison2)];
+  comparison2[is.na(comparison2)];
   measure.proportions.female = measure.proportions.female[comparison2,];
   
   summary(measure.proportions.female);
