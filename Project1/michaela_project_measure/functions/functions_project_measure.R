@@ -120,8 +120,8 @@ measure.clean <- na.omit(measure.clean);
 measure.clean;
 
 for (columns in 4:17) {
-   Q1 <- quantile(measure.clean[[columns]], 0.25);
-   Q3 <- quantile(measure.clean[[columns]], 0.75);
+   Q1 <- quantile(measure.clean[[columns]], 0.2);
+   Q3 <- quantile(measure.clean[[columns]], 0.8);
    IQR <- IQR(measure.clean[[columns]]);
 # boxplot(measure.clean$hand.length);
    no_outliers <- subset(measure.clean, measure.clean[[columns]]>(Q1 - 1.5*IQR) & measure.clean[[columns]]<(Q3 +1.5*IQR));
@@ -185,7 +185,7 @@ prepareMeasureData = function(file.measure)
   saveRDS(measure.clean, outfile);
   
   # Remove outliers
-  measure.clean = removeOutliers(measure.clean);
+  # measure.clean = removeOutliers(measure.clean);
   measure.clean;
   }
 

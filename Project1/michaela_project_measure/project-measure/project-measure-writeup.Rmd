@@ -555,14 +555,14 @@ When making a plot and viewing a summary statistics the plot we see is a linear 
 The summary statistics also proves that because the mean, 1st and 3rd Quartile values are very close.
 
 ```{r,appendix-proportions-arm-span,message=FALSE}
-# Is there a linear relationship between the two variables? -> Yes
-plot(measure.proportions$arm.span.NA, measure.proportions$height.NA, col = "#981e32", pch = 18, asp = 1, bty = "n", xlab = "arm span", ylab = "height", xlim = c(0,250), ylim = c(0,250));
-abline(lm(measure.proportions$height.NA~measure.proportions$arm.span.NA), col="#5e6a71", lwd = 2);
-summary(measure.proportions);
-
-# same step for instructors data
-plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
-summary(measure.proportions2);
+# # Is there a linear relationship between the two variables? -> Yes
+# plot(measure.proportions$arm.span.NA, measure.proportions$height.NA, col = "#981e32", pch = 18, asp = 1, bty = "n", xlab = "arm span", ylab = "height", xlim = c(0,250), ylim = c(0,250));
+# abline(lm(measure.proportions$height.NA~measure.proportions$arm.span.NA), col="#5e6a71", lwd = 2);
+# summary(measure.proportions);
+# 
+# # same step for instructors data
+# plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
+# summary(measure.proportions2);
 
 ```
 
