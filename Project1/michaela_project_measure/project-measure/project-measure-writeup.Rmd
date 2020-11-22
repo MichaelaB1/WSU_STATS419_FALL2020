@@ -42,7 +42,8 @@ knitr::opts_chunk$set(echo = TRUE)
 \section{Introduction}
 \label{sec:intro}
 
-Write something here.
+The early beginning of statistics and data analytics started with taking data and observing it. 
+This project involves all these steps as well. Students collected human body measurement data themselves and then analyzed it based on their personal interest. 
 
 
 \begin{figure}[!ht]
@@ -56,10 +57,8 @@ Write something here.
 \end{figure}
 
 
+The one graphic is a nice representation of two data variable's relationship. The variables are height and arm span. The observation is an almost perfect linear relationship with same proportions or measurements. This graphic is also included in the main analysis of the data and one point of interest that has been analyzed.
 
-
-
-Write something here.
 
 
 \section{Research Question: How do body composition ratios relate to gender and age?}
@@ -325,6 +324,7 @@ Below is the self data clean up function that has all the steps inside of them.
 ```{r,appendix-create-data-frame,message=FALSE}
 
 measure.clean = prepareMeasureData(file.measure);
+measure.clean;
 
 ```
 
@@ -342,6 +342,17 @@ Therefore, only a new text file needs to be loaded and read in as a data frame.
 
 measure.clean2 = readDataIntoDataFrame(file.measure.clean);
 
+measure.clean2$gender[measure.clean2$gender == 'F'] <- 'female';
+measure.clean2$gender[measure.clean2$gender == 'M'] <- 'male';
+measure.clean2;
+
+# determine if this separation above will give the same as separating by head proportions
+measure.clean2 = measure.clean2[,-(18), drop=FALSE];
+measure.clean2 = measure.clean2[,-(27:34), drop=FALSE];
+
+
+
+measure.clean2;
 ```
 
 
@@ -392,8 +403,8 @@ The code for this step is showed below.
 measure.proportions = prepareProportionsAnalysis(measure.clean);
 
 # same step for instructors data
-measure.proportions2 = prepareProportionsAnalysis(measure.clean2);
-
+measure.proportions2 = prepareProportionsAnalysisInstructor(measure.clean2);
+measure.proportions2;
 ```
 
 
@@ -444,8 +455,8 @@ Below the code for the comparison of group age and group proportions is shown.
 # Do the 2 groups assigned match
 match.percentage = matchingGroups(measure.proportions);
 
-# # same step for instructors data
-# match.percentage2 = matchingGroups(measure.proportions2);
+# same step for instructors data
+match.percentage2 = matchingGroups(measure.proportions2);
 
 ```
 
@@ -475,8 +486,8 @@ Below the code for the comparison of group age and group proportions is shown.
 # What percentage of people is considered heroic?
 h.percentage = heroicPeople(measure.proportions);
 
-# # same step for instructors data
-# h.percentage2 = heroicPeople(measure.proportions2);
+# same step for instructors data
+h.percentage2 = heroicPeople(measure.proportions2);
 
 ```
 
@@ -498,9 +509,9 @@ Below the code of percentages of heroic males and heroic females are given.
 heroic.male.p = percentageOfHeroicPeopleBeingMale(measure.proportions);
 heroic.female.p = 100 - heroic.male.p;
 
-# # same for instructors data
-# heroic.male.p2 = percentageOfHeroicPeopleBeingMale(measure.proportions2);
-# heroic.female.p2 = 100 - heroic.male.p2;
+# same for instructors data
+heroic.male.p2 = percentageOfHeroicPeopleBeingMale(measure.proportions2);
+heroic.female.p2 = 100 - heroic.male.p2;
 ```
 
 
@@ -521,9 +532,9 @@ Below the code of percentages of heroic males and heroic females are given.
 heroic.m.p = assignHeroicByHeightMalePercentage(measure.proportions);
 heroic.f.p = 100 - heroic.m.p;
 
-# # same for instructors data
-# heroic.m.p2 = assignHeroicByHeightMalePercentage(measure.proportions2);
-# heroic.f.p2 = 100 - heroic.m.p2;
+# same for instructors data
+heroic.m.p2 = assignHeroicByHeightMalePercentage(measure.proportions2);
+heroic.f.p2 = 100 - heroic.m.p2;
 
 ```
 
@@ -550,9 +561,9 @@ The summary statistics also proves that because the mean, 1st and 3rd Quartile v
 plot(measure.proportions$arm.span.NA, measure.proportions$height.NA, col = "blue",main = paste("Plot of arm.span vs height of measure.proportions data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
 summary(measure.proportions);
 
-# # same step for instructors data
-# plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
-# summary(measure.proportions2);
+# same step for instructors data
+plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
+summary(measure.proportions2);
 
 ```
 

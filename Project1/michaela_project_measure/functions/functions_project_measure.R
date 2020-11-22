@@ -225,6 +225,9 @@ createSubsetInstructor = function(measure.clean)
   measure.subset = measure.subset[,-(4:6), drop=FALSE];
   measure.subset = measure.subset[,-(4:6), drop=FALSE];
   measure.subset = measure.subset[,-(6:17), drop=FALSE];
+  
+  # rename columns
+  colnames(measure.subset) <-c("height.NA", "head.height.NA", "arm.span.NA", "age", "gender"); 
   measure.subset;
 }
 
@@ -418,7 +421,7 @@ heroicPeople = function(measure.proportions)
 percentageOfHeroicPeopleBeingMale = function(measure.proportions)
 {
   # new data frame
-  measure.proportions.new2 <- measure.proportions[,c(5,9)];
+  measure.proportions.new2 <- measure.proportions[,c(5,7)];
   measure.proportions.new2 <- na.omit(measure.proportions.new2);
   measure.proportions.new2;
   
@@ -427,7 +430,7 @@ percentageOfHeroicPeopleBeingMale = function(measure.proportions)
   match.h = 0;
   
   for (row in 1:nrow(measure.proportions.new2)) { # Iterate through each row
-    if (measure.proportions.new2$proportions.group.2[row] == 'H') { # When grouping is heroic
+    if (measure.proportions.new2$proportions.group[row] == 'H') { # When grouping is heroic
       match.h = match.h + 1; # Add a match
     }
   }
@@ -502,7 +505,7 @@ assignHeroicByHeightMalePercentage = function(measure.proportions)
   }
   
   rows = nrow(measure.proportions.new2);
-  heroic.m.p = (heroic.m.p/rows)*100;
+  heroic.m.p = (heroic.m/rows)*100;
   
   heroic.m.p
 }
