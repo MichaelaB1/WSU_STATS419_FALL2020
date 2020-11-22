@@ -18,13 +18,11 @@ author:
 - name: "Michaela Bayerlova"
   affiliation: "Washington State University"
 keywords: |
-    multiple comparisons to control; multivariate chi-square distribution; nonlinear growth curves; Richard's curve; simulated critical points
+    Data Cleanup; Data Analysis; Data Visualization
 abstract: |
-  In this article we compare the \emph{empirical characteristic function} \citep{Tukey:1977, Becker:1988} to a \emph{moment-generating-functional form} to compute the proportion of hypotheses $m$ that are rejected under the null hypothesis. \vspace{0.25in}
+  In this article I compare some self collected \emph{body composition measurement data} with one another and try to gather interesting findings, so that I can drive some conclusions and possibly generalizations. The data gets cleaned up first to eliminate the noisy data and make the results more significant. Then the analytics comes in. For all statistical and data analytical reference, see the Appendix section \ref{sec:appendix} \vspace{0.25in}
 
-  \noindent Here is a second paragraph of the abstract (if necessary), and with the pipe notation it doesn't break. Notice it still needs to be indented. \vspace{0.25in}
-
-  \noindent Generally, we write this abstract last.  Often it is called the executive summary. It should succinctly summarize the entire document.  You can include references such as this one to the Appendices section \ref{sec:appendix} if necessary.
+ 
 sectionnumberdepth: 3
 titleEndnotes: "ENDNOTES"
 titleReferences: "REFERENCES"
@@ -48,7 +46,7 @@ This project involves all these steps as well. Students collected human body mea
 
 \begin{figure}[!ht]
 	\hrule
-	\caption{ \textbf{Caption OneGraphic} }
+	\caption{ \textbf{The relationship between human height and arm span!} }
 	\begin{center}
 	    \scalebox{1.00}{	\includegraphics[trim = 0 0 0 0,clip,width=0.85\textwidth]{pdfs/OneGraphic.pdf} }
 	\end{center}
@@ -57,9 +55,13 @@ This project involves all these steps as well. Students collected human body mea
 \end{figure}
 
 
+\newline
+\newline
 The one graphic is a nice representation of two data variable's relationship. The variables are height and arm span. The observation is an almost perfect linear relationship with same proportions or measurements. This graphic is also included in the main analysis of the data and one point of interest that has been analyzed.
 
 
+
+\newpage
 
 \section{Research Question: How do body composition ratios relate to gender and age?}
 \label{sec:rq}
@@ -100,16 +102,16 @@ The sample we found initially had a lot of noise, which required a good clean up
 
 \subsection{Summary Statistics of Data}
 \label{sec:data-summary}
-The summary statistics of the collected data includes means and standard deviations of all variables. It also shows the quartiles and therefore how the data is distributed. Another summary statistic can be the dimensions of the data. The initial data set had 428 observations and 37 variables. After the instructors clean up, there were only ...... left. 
+The summary statistics of the collected data includes means and standard deviations of all variables. It also shows the quartiles and therefore how the data is distributed. Another summary statistic can be the dimensions of the data. The initial data set had 428 observations and 37 variables. After the instructors clean up, there were only 251 left. 
 
 
 \section{Key Findings}
 \label{sec:findings}
 The key findings from the analysis are giving the answers to my research questions. The main research question was asking: How do body composition ratios relate to gender and age. I only started looking at the head height vs height proportions of every person. Then the male and female data was separated so that I can find the average of each. 
-The next key finding was, that the data grouping by head height and height proportions or height and age do give the same result for 90.25641 % of the time. This means, that the grouping comparisons are valid and work well for this data. 
-An addition to this is the interest of what percentage is considered heroic. There I was surprised that it was 13.33 % of the whole data when grouping based on proportions. It seemed quite a lot to me. And out of those 13 %, 61.53846 % have been male. Another grouping by internet vales of average height showed, that 53.125 % of categorized 'heroic' people this time were male. 
+The next key finding was, that the data grouping by head height and height proportions or height and age do give the same result for ~90 % of the time. This means, that the grouping comparisons are valid and work well for this data. 
+An addition to this is the interest of what percentage is considered heroic. There I was surprised that it was ~15 % of the whole data when grouping based on proportions. It seemed quite a lot to me. And out of those 15 %, 61.54 % have been male. Another grouping by internet vales of average height showed, that ~53 % of categorized 'heroic' people this time were male. 
 
-A very great finding was also, that height and arm span have a strong linear relationship. The taller one person is, the wider is the corresponding arm span. Another interesting fact about it is, that the measurements of height and arm span of a person are almost identical. When doing a proportion again, and then only letting values in between 0.9 and 1.1 (a 90% match) being true, then 89.79592 of the data is applicable.
+A very great finding was also, that height and arm span have a strong linear relationship. The taller one person is, the wider is the corresponding arm span. Another interesting fact about it is, that the measurements of height and arm span of a person are almost identical. When doing a proportion again, and then only letting values in between 0.9 and 1.1 (a 90% match) being true, then ~89 % of the data is applicable.
 
 When coming back to my primary research question, I can say, that the body composition ratio of head height vs height do relate to gender and more to age. It relates more to age, because a child's ratio differs from the one of an adult. And there a clear line can be seen. Whereas, with gender there is not much of a possible distinguish, because the ratio of an average of 8 is the same. 
 
@@ -122,7 +124,6 @@ As a conclusion I can say, that I have been able to find very interesting result
 
 
 
-Refer to the Appendices in section~\ref{sec:appendix} where I am going to cite John \citep[pp. 2-3]{Tukey:1962}.
 
 
 
@@ -131,38 +132,16 @@ Refer to the Appendices in section~\ref{sec:appendix} where I am going to cite J
 
 \input{tables/measure-correlation-table}
 
-\newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The table shows, the mean and standard deviation for all of the variables and then the correlation significance factor between those variables. 
+We see from there, that the correlation between arm span and height is very strong and positive (0.9). So when someone is taller than someone else, that person's arm span should also be bigger.
+The relation between head height and height is 0.66, the same is true for head height and arm span. The correlation is only average and cannot be taken as very significant.
 
 \newpage
+
+
+
+
+
 \section{APPENDICES}
 \label{sec:appendix}
 
@@ -415,7 +394,9 @@ Here the newly created proportions of male and female get separated into new dat
 
 \paragraph{Findings: Mean of male and female proportions}
 \label{sec:appendix-findings-mean-gender-proportions}
-The findings are, that the mean proportions of head heights in the height of females in the data set is about .... The mean value I get for males is ...
+The findings are, that the mean proportions of head heights in the height of females in the data set is 158.3 cm. The mean value I get for males is 177.42 cm.
+When looking at the instructors data I get values of female and male respectively, 160.5 cm and 174.9 cm.
+So there is a little bit of a difference due to the data sets.
 
 Below is the code for the summary statistics of male and female head height vs height proportions.
 
@@ -449,7 +430,8 @@ Here the analysis gets interesting. Now we compare if the two ways of assigning 
 
 \subparagraph{Findings: Comparison age vs proportions group}
 \label{sec:appendix-findings-comparison-age-vs-proportions-group}
-The results give a percentage of about 90.26 %. This means that 9 out of 10 assignments using method 1 to assign by proportions and the method 2 to assign by age will give the same result.
+The results give a percentage of my data give 90.13 %. This means that 9 out of 10 assignments using method 1 to assign by proportions and the method 2 to assign by age will give the same result.
+The professors data has a slightly better result on this analysis with 90.54 %.
 
 Below the code for the comparison of group age and group proportions is shown.
 
@@ -480,7 +462,8 @@ The result is a percentage of how many assignments from the data are 'heroic'.
 
 \subparagraph{Findings: Heroic}
 \label{sec:appendix-findings-heroic}
-The results give a percentage of about 13.3 %. This means that 13 out of every 100 people is considered heroic, and therefore taller than the average height when looking at the head.height vs height proportions only! 
+The results give a percentage of about 14.47 %. This means that 14 out of every 100 people is considered heroic, and therefore taller than the average height when looking at the head.height vs height proportions only! 
+The professor's data indicates a percentage of 16.96 %. 
 
 Below the code for the comparison of group age and group proportions is shown.
 
@@ -502,7 +485,8 @@ From the assigned percentage of heroic people over the total assignments, now th
 
 \subparagraph{Findings: Heroic male percentage}
 \label{sec:appendix-findings-heroic-male-percentage}
-The results give a percentage of the people that are male out of the assigned heroic people. This is found to be 61.53846 % (male out of heroic).
+The results give a percentage of the people that are male out of the assigned heroic people. This is found to be 61.54 % (male out of heroic), with then being 38.46 % females heroic.
+These values are the same for the instructors data in this analysis.
 
 Below the code of percentages of heroic males and heroic females are given.
 
@@ -525,7 +509,8 @@ Here a major part is the reference to a website "https://ourworldindata.org/huma
 
 \subparagraph{Findings: Heroic Height}
 \label{sec:appendix-findings-heroic-height}
-The results give a percentage of the people that are male out of the assigned heroic people. That percentage is 53.125.
+The results give a percentage of the people that are male out of the assigned heroic people. That percentage is 51.55 %. Then female heroic people compared to average height are 48.45 %.
+The percentage of the instructors data set varies a little bit as it has 55.33 % males and 44.67 % females categorized as heroic.
 
 Below the code of percentages of heroic males and heroic females are given.
 
@@ -555,8 +540,9 @@ This is a really interesting analysis. Since we know from the Figure 4. that a p
 
 \subparagraph{Findings of plotting variables}
 \label{sec:appendix-findings-plotting}
-When making a plot and viewing a summary statistics the plot we see is a linear line graph. It clearly shows a linear relationship between those two variables. The axis labels are also the same, which means that it is nearly a slope of 1, which would be perfectly linear. 
+When making a plot and viewing a summary statistics the plot we see is a linear line graph. It clearly shows a linear relationship between those two variables. The axis labels are also the same, which means that it is nearly a slope of 1, which would be perfectly linear. The graph is shown as the OneGraphic.\ref{sec:Intro}
 The summary statistics also proves that because the mean, 1st and 3rd Quartile values are very close.
+And even the match percentage >90% analysis gives a very positive result. In my cleaned data set 90.13 % of the height and arm span measurement values are within a difference of 0.1 (10%). And in the professor's data set they are 90.54 %. 
 
 ```{r,appendix-proportions-arm-span,message=FALSE}
 # # Is there a linear relationship between the two variables? -> Yes
@@ -574,9 +560,9 @@ The summary statistics also proves that because the mean, 1st and 3rd Quartile v
 Below is the code for the comparison of a 90% match.
 
 ```{r,appendix-proportions-match-armspan-height,message=FALSE}
-# Is there a relationship between arm.span and height?
-match.percentage.90 = relateArmSpanAndHeight(measure.proportions);
-
+# # Is there a relationship between arm.span and height?
+# match.percentage.90 = relateArmSpanAndHeight(measure.proportions);
+# 
 # # same step for instructors data
 # match.percentage.90.2 = relateArmSpanAndHeight(measure.proportions2);
 
@@ -596,8 +582,9 @@ Below the code for the comparison of group age and group proportions is shown.
 ```{r,appendix-proportions-all-vs-height,message=FALSE}
 # Proportions of all measurements vs head.height
 measure.head.proportions = proportionsAllColumnsVSHeadHeight(measure.clean);
+measure.head.proportions;
 
-# # same step for instructors data
+# same step for instructors data
 # measure.head.proportions2 = proportionsAllColumnsVSHeadHeight(measure.clean2);
 
 ```
@@ -627,15 +614,15 @@ When looking at the t-test, then we see again, that the variables height and hea
 Below the code for the correlation test and t-test is shown.
 
 ```{r,appendix-tests,message=FALSE}
-# correlation
-cor.test(measure.proportions$height.NA, measure.proportions$head.height.NA);
-cor.test(measure.proportions$height.NA, measure.proportions$age);
-cor.test(measure.proportions$height.NA, measure.proportions$arm.span.NA);
-
-# same for instructor data
-cor.test(measure.proportions2$height.NA, measure.proportions2$head.height.NA);
-cor.test(measure.proportions2$height.NA, measure.proportions2$age);
-cor.test(measure.proportions2$height.NA, measure.proportions2$arm.span.NA);
+# # correlation
+# cor.test(measure.proportions$height.NA, measure.proportions$head.height.NA);
+# cor.test(measure.proportions$height.NA, measure.proportions$age);
+# cor.test(measure.proportions$height.NA, measure.proportions$arm.span.NA);
+# 
+# # same for instructor data
+# cor.test(measure.proportions2$height.NA, measure.proportions2$head.height.NA);
+# cor.test(measure.proportions2$height.NA, measure.proportions2$age);
+# cor.test(measure.proportions2$height.NA, measure.proportions2$arm.span.NA);
 
 
 # # T-test

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.14)  16 NOV 2020 11:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.14)  22 NOV 2020 13:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -758,12 +758,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 300.
+Package hyperref Info: Option `breaklinks' set `true' on input line 299.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 300.
+(hyperref)                setting the option has no effect on input line 299.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 300.
+Package hyperref Info: Option `colorlinks' set `true' on input line 299.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/place
 ins/placeins.sty
@@ -777,27 +777,28 @@ kend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count320
 \l__pdf_internal_box=\box103
-) (./project-measure-writeup.aux)
+)
+No file project-measure-writeup.aux.
 \openout1 = `project-measure-writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 329.
-LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 328.
+LaTeX Font Info:    ... okay on input line 328.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -855,14 +856,14 @@ e
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 329.
+(lastpage)             ! on input line 328.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Package hyperref Warning: Draft mode on.
 
-Package hyperref Info: Link coloring ON on input line 329.
+Package hyperref Info: Link coloring ON on input line 328.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyper
 ref/nameref.sty
@@ -878,178 +879,74 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 329.
-LaTeX Info: Redefining \pageref on input line 329.
-LaTeX Info: Redefining \nameref on input line 329.
+LaTeX Info: Redefining \ref on input line 328.
+LaTeX Info: Redefining \pageref on input line 328.
+LaTeX Info: Redefining \nameref on input line 328.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 34
-8.
-LaTeX Font Info:    No file T1phv.fd. on input line 348.
+7.
+LaTeX Font Info:    No file T1phv.fd. on input line 347.
 
 LaTeX Font Warning: Font shape `T1/phv/bx/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 348.
+(Font)              using `T1/cmr/m/n' instead on input line 347.
+
+
+LaTeX Warning: Reference `sec:appendix' on page 1 undefined on input line 372.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-70.
+75.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot
 1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-70.
+75.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/om
 llmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-370.
+375.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/om
 slmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-370.
+375.
 
 (c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/om
 xlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 370.
+(Font)              <10> on input line 375.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 370.
+(Font)              <7> on input line 375.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 370.
-<pdfs/OneGraphic.pdf, id=1, 274.02374pt x 332.24126pt>
+(Font)              <5> on input line 375.
+<pdfs/OneGraphic.pdf, id=1, 274.02374pt x 290.08376pt>
 File: pdfs/OneGraphic.pdf Graphic file (type pdf)
 <use pdfs/OneGraphic.pdf>
-Package pdftex.def Info: pdfs/OneGraphic.pdf  used on input line 418.
-(pdftex.def)             Requested size: 399.29463pt x 484.1658pt.
-[1
+Package pdftex.def Info: pdfs/OneGraphic.pdf  used on input line 412.
+(pdftex.def)             Requested size: 399.29463pt x 422.73087pt.
 
-{c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex
-/updmap/pdftex.map}]
-Overfull \vbox (37.71579pt too high) has occurred while \output is active []
+! LaTeX Error: There's no line here to end.
 
-[2 <./pdfs/OneGraphic.pdf>] [3] [4] (./tables/measure-correlation-table.tex
-Underfull \hbox (badness 10000) in alignment at lines 26--26
-[][][][][][][][][][][][][][][][]
- []
-
-) [5] [6]
-
-pdfTeX warning: pdflatex.exe (file ./pdfs/2.Handout_page1.pdf): PDF inclusion: 
-found PDF version <1.7>, but at most version <1.5> allowed
-<pdfs/2.Handout_page1.pdf, id=43, 614.295pt x 794.97pt>
-File: pdfs/2.Handout_page1.pdf Graphic file (type pdf)
-<use pdfs/2.Handout_page1.pdf>
-Package pdftex.def Info: pdfs/2.Handout_page1.pdf  used on input line 571.
-(pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
-[7 <./pdfs/2.Handout_page1.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./pdfs/2.Handout_page2.pdf): PDF inclusion: 
-found PDF version <1.7>, but at most version <1.5> allowed
-<pdfs/2.Handout_page2.pdf, id=64, 614.295pt x 794.97pt>
-File: pdfs/2.Handout_page2.pdf Graphic file (type pdf)
-<use pdfs/2.Handout_page2.pdf>
-Package pdftex.def Info: pdfs/2.Handout_page2.pdf  used on input line 583.
-(pdftex.def)             Requested size: 399.29463pt x 516.73651pt.
-[8 <./pdfs/2.Handout_page2.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./figures/Vitruvian.pdf): PDF inclusion: fou
-nd PDF version <1.6>, but at most version <1.5> allowed
-<figures/Vitruvian.pdf, id=85, 474.2545pt x 166.15877pt>
-File: figures/Vitruvian.pdf Graphic file (type pdf)
-<use figures/Vitruvian.pdf>
-Package pdftex.def Info: figures/Vitruvian.pdf  used on input line 596.
-(pdftex.def)             Requested size: 154.16061pt x 166.15836pt.
-File: figures/Vitruvian.pdf Graphic file (type pdf)
-<use figures/Vitruvian.pdf>
-Package pdftex.def Info: figures/Vitruvian.pdf  used on input line 602.
-(pdftex.def)             Requested size: 154.16063pt x 166.15836pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 592--607
-[]$[]$ $[]$
- []
-
-[9 <./figures/Vitruvian.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
-24.
-
-(c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1
-lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 625.
-[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1244.
-
-(c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts
-1lmtt.fd
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [22] [23]
-
-Package endnotes Warning: No endnotes found (file project-measure-writeup.ent d
-oes not exist)
-(endnotes)                 on input line 1256.
-
-[24] (./project-measure-writeup.bbl) [25] (./project-measure-writeup.toc)
-\tf@toc=\write5
-\openout5 = `project-measure-writeup.toc'.
-
-
-AED: lastpage setting LastPage
-[26] (./project-measure-writeup.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.418 \newline
+               
 Here is how much of TeX's memory you used:
- 15150 strings out of 481433
- 236295 string characters out of 5918561
- 565225 words of memory out of 5000000
- 31606 multiletter control sequences out of 15000+600000
- 620637 words of font info for 80 fonts, out of 8000000 for 9000
+ 14896 strings out of 481433
+ 231219 string characters out of 5918561
+ 541313 words of memory out of 5000000
+ 31395 multiletter control sequences out of 15000+600000
+ 585753 words of font info for 58 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 79i,13n,84p,777b,555s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvi
-ps/lm/lm-ts1.enc}{c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/michaela.bayerlova/AppData/Roaming/Tin
-yTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/michaela.bayerlova/AppDa
-ta/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/michae
-la.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.en
-c} <c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecrm1095.600pk><c:/Users/michaela.bayerlova/AppData/Roaming/Tiny
-TeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/michaela.bayerlova/Ap
-pData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/mic
-haela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.
-pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/lm/lmbx9.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf
--dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/michaela.bayerlova/AppData/Ro
-aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/michaela.ba
-yerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb><c:/
-Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/
-lm/lmr10.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fo
-nts/type1/public/lm/lmr5.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyT
-eX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/michaela.bayerlova/AppDa
-ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/michaela
-.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-<c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
-lic/lm/lmri9.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/type1/public/lm/lmsy5.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/
-TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/michaela.bayerlova
-/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/
-michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmt
-t10.pfb><c:/Users/michaela.bayerlova/AppData/Roaming/TinyTeX/texmf-dist/fonts/t
-ype1/public/lm/lmtti10.pfb>
-Output written on project-measure-writeup.pdf (26 pages, 783577 bytes).
-PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 79i,7n,84p,777b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!
