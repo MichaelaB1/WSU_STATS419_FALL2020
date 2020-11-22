@@ -185,7 +185,7 @@ prepareMeasureData = function(file.measure)
   saveRDS(measure.clean, outfile);
   
   # Remove outliers
-  # measure.clean = removeOutliers(measure.clean);
+  measure.clean = removeOutliers(measure.clean);
   measure.clean;
   }
 
@@ -227,6 +227,7 @@ createSubsetInstructor = function(measure.clean)
   measure.subset = measure.subset[,-(6:17), drop=FALSE];
   
   # rename columns
+  measure.subset;
   colnames(measure.subset) <-c("height.NA", "head.height.NA", "arm.span.NA", "age", "gender"); 
   measure.subset;
 }
