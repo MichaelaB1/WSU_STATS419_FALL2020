@@ -336,7 +336,7 @@ measure.clean;
 \label{sec:appendix-instructor-data-cleanup}  
 The instructor has provided another cleaned data set to the students after some issues have arised. 
 
-Therefore, only a new text file needs to be loaded and read in as a data frame.
+Therefore, only a new text file needs to be loaded and read in as a data frame. Changing gender labels and dropping unnecessary columns as well to obtain the same data frame as I do with my clean up. (no notes column also)
 
 ```{r,appendix-instructor-data-cleanup,message=FALSE}
 
@@ -402,7 +402,7 @@ measure.proportions = prepareProportionsAnalysis(measure.clean);
 
 # same step for instructors data
 measure.proportions2 = prepareProportionsAnalysisInstructor(measure.clean2);
-measure.proportions2;
+
 ```
 
 
@@ -425,6 +425,7 @@ meanGenderProportions(measure.proportions);
 
 # same step for instructors data
 meanGenderProportions(measure.proportions2);
+
 ```
 
 

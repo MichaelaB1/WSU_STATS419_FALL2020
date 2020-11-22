@@ -185,7 +185,7 @@ prepareMeasureData = function(file.measure)
   saveRDS(measure.clean, outfile);
   
   # Remove outliers
-  # measure.clean = removeOutliers(measure.clean);
+  measure.clean = removeOutliers(measure.clean);
   measure.clean;
   }
 
@@ -261,24 +261,28 @@ proportionsGroup = function(measure.proportions)
 
 
 # what is the mean of male or female proportions
-meanGenderProportions = function(measure.proportions)
+meanMaleProportions = function(measure.proportions)
 {
   measure.proportions.male <- as.data.frame((measure.proportions));
-  measure.proportions.female <- as.data.frame((measure.proportions));
                                
   comparison = (measure.proportions.male$gender == 'male');
   comparison[is.na(comparison)];
   measure.proportions.male = measure.proportions.male[comparison,];
                                             
+  summary(measure.proportions.male);
+}
+
+# female
+meanFemaleProportions = function(measure.proportions)
+{
+  measure.proportions.female <- as.data.frame((measure.proportions));
+  
   comparison2 = measure.proportions.female$gender == 'female';
   comparison[is.na(comparison2)];
   measure.proportions.female = measure.proportions.female[comparison2,];
   
-  summary(measure.proportions.male);
   summary(measure.proportions.female);
 }
-
-
 
 
 
