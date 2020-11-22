@@ -545,7 +545,7 @@ proportionsAllColumnsVSHeadHeight = function(measure.clean)
   
   measure.head.proportions;
   
-  measure.head.proportions = na.omit(measure.head.proportions);
+  #measure.head.proportions = na.omit(measure.head.proportions);
   measure.head.proportions;
 
 }
