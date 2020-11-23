@@ -1,0 +1,197 @@
+---
+title: 'R Notebook Project Measure'
+name: "Michaela"
+email: "michaela.bayerlova@wsu.edu"
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    toc_float: true
+    toc_depth: 6
+    fig_caption: true
+    number_sections: false 
+params:
+  knitChunkSetEcho: TRUE 
+  knitChunkSetWarning: FALSE
+  knitChunkSetMessage: TRUE
+  knitChunkSetCache: TRUE
+  knitChunkSetFigPath: "graphics/"
+    
+my-var: "monte"  # https://bookdown.org/yihui/rmarkdown/html-document.html
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning=FALSE)
+```
+
+<!-- But for me I have a primary research question that consists of two subquestions. My first subquestion is "How does ’height’ compare to ’arm span’ between males and females?" where I compare the two using cor.test(), plots, and a correlation matrix. -->
+
+<!-- For my second subquestion, I have "How many average ’head height’ lengths are males and females relative to their respective, -->
+<!-- average ’height’?" where I compare the means of both samples using t.test() and simple division. -->
+
+
+# Loading data
+```{r, chunk-file-path}
+# # Run those before the whole document
+# Sys.setenv(WSU_SANDBOX_HOST = "md5.mshaffer.com");
+# Sys.setenv(WSU_SANDBOX_DATABASE = "wsu_sandbox_db");
+# Sys.setenv(WSU_SANDBOX_USER = "wsu_sandox_user");
+# Sys.setenv(WSU_SANDBOX_PASSWD = "!WSUCougars");
+library(humanVerseWSU);
+
+path.measure = "C:/_git_/SECRETS/";  
+file.measure = paste0(path.measure,"measure-students.txt");
+file.measure.clean = paste0(path.measure,"cm.final.measure.txt");
+
+library(devtools);
+path.github = "https://raw.githubusercontent.com/MichaelaB1/WSU_STATS419_FALL2020/";
+source_url( paste0(path.github,"master/Project1/michaela_project_measure/functions/functions_project_measure.R") );  
+```
+
+
+# Data Cleanup
+## Create data frame measure
+This step saves the original data in a data frame called measure.raw. Another data frame is created as well, measure.clean, which is going to be modified.
+## Remove Duplicates
+## Average values
+For data points that have a right and left measurement, the average will be taken. When there is only one measurement, that one will be taken. This enables to get a uniform set of data without missing values for those entries.
+## Leave only average values
+In the step above new columns have been created and added to the data frame measure.clean with the average values of left and right. I only want to keep those and get rid of the lett and right columns instead. This re-arrangement will be done now.
+## Get rid of 'notes' column
+## Unity among gender notation
+In the collected data, there have been used different notations for 'female' and 'male'. This will cause problems in further analyses and it therefore needs to be adjusted to an overall standard.
+## Converting units to cm
+Since not all data has been collected in the same units, this has to be fixed in order to compare the data properly. Units used are inches and cm. I have decided to go with cm, so I convert inches to cm, where 1 inch equals to 2.54 cm.
+## Remove Outliers
+This step enables to clean up the data even more such that it has only accurate and reasonable data.
+## Remove NA values
+Now since we have rearranged, reassigned and removed outliers, all remaining data that has no values and is therefore incomplete can be removed. It can be removed or only for those columns that we will be working on in the analysis, so that not too much data gets deleted.
+
+```{r, chunk-data-cleaning}
+
+measure.clean = prepareMeasureData(file.measure);
+
+```
+
+
+# Read in Instructors cleaned data
+```{r, chunk-read-data}
+
+measure.clean2 = readDataIntoDataFrame(file.measure.clean);
+
+```
+
+
+
+
+
+# DATA ANALYSIS
+## Create subset with data variables
+```{r, chunk-create-subset}
+measure.subset = createSubset(measure.clean);
+measure.subset2 = createSubset(measure.clean2);
+```
+
+
+## Create new data frame 'measure.proportions' to work on analysis
+```{r, chunk-create-proportions-data-frame}
+measure.proportions = measureProportionsData(measure.subset);
+measure.proportions2 = measureProportionsData(measure.subset2);
+```
+
+
+## create group based on proportions of head.height vs height
+```{r, chunk-create-subset}
+measure.proportions = proportionsGroup(measure.proportions);
+measure.proportions2 = proportionsGroup(measure.proportions2);
+```
+
+
+## create group based on age
+```{r, chunk-create-subset}
+measure.proportions = ageGroup(measure.proportions);
+measure.proportions2 = ageGroup(measure.proportions2);
+```
+
+
+## create data frame with only the 3 new columns
+```{r, chunk-create-subset}
+measure.proportions.new = dataframeGroup(measure.proportions);
+measure.proportions.new2 = dataframeGroup(measure.proportions2);
+```
+
+
+## Do the 2 groups assigned match
+```{r, chunk-create-subset}
+match.percentage = matchingGroups(measure.proportions.new);
+match.percentage2 = matchingGroups(measure.proportions.new2);
+```
+
+
+## What percentage of people is considered heroic?
+```{r, chunk-create-subset}
+match.h.percentage = heroicPeople(measure.proportions);
+match.h.percentage2 = heroicPeople(measure.proportions2);
+```
+
+
+## What percentage of heroic people is male or female?
+```{r, chunk-create subset}
+heroic.male.p = percentageOfHeroicPeopleBeingMale(measure.proportions);
+heroic.female.p = 100 - heroic.male.p;
+```
+
+
+## Assign people heroic based on height and get percentage
+```{r, chunk-create subset}
+heroic.m.p = assignHeroicByHeightMalePercentage(measure.proportions);
+heroic.f.p = 100 - heroic.m.p;
+```
+
+
+
+
+## Proportions of all measurements vs head.height
+```{r, chunk-create subset}
+measure.head.proportions = proportionsAllColumnsVSHeadHeight(measure.clean);
+measure.head.proportions2 = proportionsAllColumnsVSHeadHeight(measure.clean2);
+```
+
+
+## How does arm span relate to height?
+```{r, chunk-arm-span}
+match.percentage.90 = relateArmSpanAndHeight(measure.proportions);
+match.percentage.90.2 = relateArmSpanAndHeight(measure.proportions2);
+```
+
+
+## Correlation Test
+```{r, chunk-correlation-test}
+# correlation
+cor.test(measure.proportions$height.NA, measure.proportions$head.height.NA);
+cor.test(measure.proportions$height.NA, measure.proportions$age);
+cor.test(measure.proportions$height.NA, measure.proportions$arm.span.NA);
+
+# same for instructor data
+cor.test(measure.proportions2$height.NA, measure.proportions2$head.height.NA);
+cor.test(measure.proportions2$height.NA, measure.proportions2$age);
+cor.test(measure.proportions2$height.NA, measure.proportions2$arm.span.NA);
+```
+
+
+## T-test
+```{r, chunk-t-test}
+# T-test
+t.test(measure.proportions$height.NA, measure.proportions$head.height.NA);
+t.test(measure.proportions$height.NA, measure.proportions$age);
+t.test(measure.proportions$height.NA, measure.proportions$arm.span.NA);
+
+# same for instructor data
+t.test(measure.proportions2$height.NA, measure.proportions2$head.height.NA);
+t.test(measure.proportions2$height.NA, measure.proportions2$age);
+t.test(measure.proportions2$height.NA, measure.proportions2$arm.span.NA);
+```
+
+
