@@ -55,9 +55,35 @@ This project involves all these steps as well. Students collected human body mea
 \end{figure}
 
 
-\newline
-\newline
 The one graphic is a nice representation of two data variable's relationship. The variables are height and arm span. The observation is an almost perfect linear relationship with same proportions or measurements. This graphic is also included in the main analysis of the data and one point of interest that has been analyzed.
+
+
+\begin{figure}[!ht]
+    \begin{subfigure}[h]{0.5\textwidth}
+    \centering
+    %  trim={<left> <lower> <right> <upper>}
+    % https://shantoroy.com/latex/add-subfig-in-latex/
+            \includegraphics[trim = 0 0 5cm 0,clip,scale=2]{pdfs/OneGraphic.pdf}
+        \caption{ Height versus Head Height plot on cleaned measure data.}
+        \label{fig:sub-first}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.5\textwidth}
+    \centering
+        \includegraphics[trim = 5cm 0 0 0,clip,scale=2]{pdfs/InstructorDataOneGraphicPlot.pdf}
+            \caption{ Height versus Head Height plot on the Instructor's cleaned measure data.}
+        \label{fig:sub-second}
+    \end{subfigure}
+    \vspace{2.5mm}
+    \hrule
+    \vspace{2.5mm}
+        \caption{\textbf{ Height versus Head Height on different cleaned data sets}   }
+        \label{fig:combined}
+    \vspace{-2.5mm}
+    \hrule
+\end{figure}
+
+
+The Two In One Graphic has 2 graphs of height versus arm span next to each other. The left hand side graphic is the one you see as the OneGraphic above as well. It is the graph from my self-cleaned data, whereas the data of second one is the Instructor cleaned data. I put them next to each other so that it is able to compare them. It is possible to see that they follow the same shape and layout.  
 
 
 
@@ -303,7 +329,7 @@ Below is the self data clean up function that has all the steps inside of them.
 ```{r,appendix-create-data-frame,message=FALSE}
 
 measure.clean = prepareMeasureData(file.measure);
-measure.clean;
+# measure.clean;
 
 ```
 
@@ -323,13 +349,13 @@ measure.clean2 = readDataIntoDataFrame(file.measure.clean);
 
 measure.clean2$gender[measure.clean2$gender == 'F'] <- 'female';
 measure.clean2$gender[measure.clean2$gender == 'M'] <- 'male';
-measure.clean2;
+# measure.clean2;
 
 # determine if this separation above will give the same as separating by head proportions
 measure.clean2 = measure.clean2[,-(18), drop=FALSE];
 measure.clean2 = measure.clean2[,-(27:34), drop=FALSE];
 
-measure.clean2;
+# measure.clean2;
 ```
 
 
@@ -379,8 +405,12 @@ The code for this step is showed below.
 # Prepare for analysis of proportions
 measure.proportions = prepareProportionsAnalysis(measure.clean);
 
+plot(measure.proportions$head.height.NA, measure.proportions$height.NA, col = "#981e32",main = paste("Plot of head.height vs height of measure.proportions data"), xlab = paste("head.height.NA (cm)"), ylab = paste("height.NA (cm)"), xlim= c(0,40), ylim = c(0,250));
+
 # same step for instructors data
 measure.proportions2 = prepareProportionsAnalysisInstructor(measure.clean2);
+
+plot(measure.proportions2$head.height.NA, measure.proportions2$height.NA, col = "blue",main = paste("Plot of head.height vs height of measure.proportions2 data"), xlab = paste("head.height.NA (cm)"), ylab = paste("height.NA (cm)"));
 
 ```
 
@@ -438,9 +468,11 @@ Below the code for the comparison of group age and group proportions is shown.
 ```{r,appendix-group-age-vs-proportions,message=FALSE}
 # Do the 2 groups assigned match
 match.percentage = matchingGroups(measure.proportions);
+match.percentage;
 
 # same step for instructors data
 match.percentage2 = matchingGroups(measure.proportions2);
+match.percentage2;
 
 ```
 
@@ -470,9 +502,11 @@ Below the code for the comparison of group age and group proportions is shown.
 ```{r,appendix-heroic,message=FALSE}
 # What percentage of people is considered heroic?
 h.percentage = heroicPeople(measure.proportions);
+h.percentage;
 
 # same step for instructors data
 h.percentage2 = heroicPeople(measure.proportions2);
+h.percentage2;
 
 ```
 
@@ -494,10 +528,15 @@ Below the code of percentages of heroic males and heroic females are given.
 # What percentage of heroic people are male
 heroic.male.p = percentageOfHeroicPeopleBeingMale(measure.proportions);
 heroic.female.p = 100 - heroic.male.p;
+heroic.male.p;
+heroic.female.p;
 
 # same for instructors data
 heroic.male.p2 = percentageOfHeroicPeopleBeingMale(measure.proportions2);
 heroic.female.p2 = 100 - heroic.male.p2;
+heroic.male.p2;
+heroic.female.p2;
+
 ```
 
 
@@ -518,10 +557,14 @@ Below the code of percentages of heroic males and heroic females are given.
 # Assign people heroic based on height and get percentage
 heroic.m.p = assignHeroicByHeightMalePercentage(measure.proportions);
 heroic.f.p = 100 - heroic.m.p;
+heroic.m.p;
+heroic.f.p;
 
 # same for instructors data
 heroic.m.p2 = assignHeroicByHeightMalePercentage(measure.proportions2);
 heroic.f.p2 = 100 - heroic.m.p2;
+heroic.m.p2;
+heroic.f.p2;
 
 ```
 
@@ -545,14 +588,15 @@ The summary statistics also proves that because the mean, 1st and 3rd Quartile v
 And even the match percentage >90% analysis gives a very positive result. In my cleaned data set 90.13 % of the height and arm span measurement values are within a difference of 0.1 (10%). And in the professor's data set they are 90.54 %. 
 
 ```{r,appendix-proportions-arm-span,message=FALSE}
-# # Is there a linear relationship between the two variables? -> Yes
+# Is there a linear relationship between the two variables? -> Yes
 # plot(measure.proportions$arm.span.NA, measure.proportions$height.NA, col = "#981e32", pch = 18, asp = 1, bty = "n", xlab = "arm span", ylab = "height", xlim = c(0,250), ylim = c(0,250));
 # abline(lm(measure.proportions$height.NA~measure.proportions$arm.span.NA), col="#5e6a71", lwd = 2);
 # summary(measure.proportions);
-# 
-# # same step for instructors data
-# plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
-# summary(measure.proportions2);
+
+# same step for instructors data
+plot(measure.proportions2$arm.span.NA, measure.proportions2$height.NA, col = "darkblue",pch = 18, asp = 1, bty = "n", main = paste("Plot of arm.span vs height of measure.proportions2 data"), xlab = paste("arm.span.NA (cm)"), ylab = paste("height.NA (cm)"));
+abline(lm(measure.proportions2$height.NA~measure.proportions2$arm.span.NA), col="#5e6a71", lwd = 2)
+summary(measure.proportions2);
 
 ```
 
@@ -582,7 +626,7 @@ Below the code for the comparison of group age and group proportions is shown.
 ```{r,appendix-proportions-all-vs-height,message=FALSE}
 # Proportions of all measurements vs head.height
 measure.head.proportions = proportionsAllColumnsVSHeadHeight(measure.clean);
-measure.head.proportions;
+# measure.head.proportions;
 
 # same step for instructors data
 # measure.head.proportions2 = proportionsAllColumnsVSHeadHeight(measure.clean2);
